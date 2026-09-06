@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroSolar Device</title>
+<meta http-equiv="Content-Security-Policy"
+content="default-src 'self';
+style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+font-src https://cdnjs.cloudflare.com https://fonts.gstatic.com;
+script-src 'self' 'unsafe-inline';
+">
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<section class="header">
+<nav>
+<a href="index.html"><img src="images/logo.png"></a>
+
+<div class="nav-links" id="navLinks">
+<i class="fa fa-times" onclick="hideMenu()"></i>
+
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="about.html">ABOUT</a></li>
+<li><a href="services.html">SERVICES</a></li>
+<li><a href="blog.html">BLOG</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+
+</ul>
+</div>
+
+<i class="fa fa-bars" onclick="showMenu()"></i>
+</nav>
+
+<div class="text-box">
+<h1 class="header-text">AgroSolar Technopreneurship and Innovation Centre (ASTIC)</h1>
+
+<p class="header-subtext">
+AgroSolar Harvest is an innovative initiative under ASTIC, a British Council-funded project at the University of Uyo. 
+We develop solar-powered agro-processing solutions to reduce post-harvest losses, improve food security, and promote clean energy in agriculture.
+</p>
+
+<a href="services.html" class="hero-btn">Explore Our Services</a>
+</div>
+
+</section>
+
+<section class="course">
+
+<h1>Our Mission, Vision & Support</h1>
+
+<div class="row">
+
+<div class="service-col">
+<h3>Mission</h3>
+<p>
+To equip students and farmers with the knowledge and tools to develop solar-powered agro-processing solutions, 
+promote green entrepreneurship, and bridge the gap between academia and industry.
+</p>
+</div>
+
+<div class="service-col">
+<h3>Vision</h3>
+<p>
+To be a leading hub for sustainable agricultural innovation in Africa, 
+driving clean energy adoption and reducing post-harvest losses.
+</p>
+</div>
+
+<div class="service-col">
+<h3>Support</h3>
+<p>
+Supported by the British Council and global partners, AgroSolar provides training, mentorship, 
+funding opportunities, and access to international expertise in green technology.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- SITE -->
+<section class="site">
+<h1>Our AgroSolar Production Site</h1>
+
+<div class="row">
+
+<div class="site-col">
+<img src="images/AgroSolar_Farmlan.png">
+<div class="layer"><h3>UNIVERSITY OF UYO</h3></div>
+</div>
+
+<div class="site-col">
+<img src="images/Farmers_AgroSolar product.png">
+<div class="layer"><h3>BENUE POLY</h3></div>
+</div>
+
+<div class="site-col">
+<img src="images/Inside_Solar_Plant.png">
+<div class="layer"><h3>UYO, AKWA IBOM</h3></div>
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-text">
+    <h1>Join AgroSolar From Anywhere</h1>
+  </div>
+
+  <div class="cta-action">
+    <a href="contact.html" class="hero-btn">CONTACT US</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+ <section class="footer">
+  <h4>About Us</h4>
+  <p>
+    AgroSolar helps farmers preserve crops using solar-powered technology.
+  </p>
+
+  <div class="icons">
+    <i class="fa-brands fa-facebook-f"></i>
+    <i class="fa-brands fa-twitter"></i>
+    <i class="fa-brands fa-instagram"></i>
+    <i class="fa-brands fa-linkedin-in"></i>
+  </div>
+
+  <p>Made with <i class="fa-regular fa-heart"></i> by AgroSolar</p>
+</section>
+
+<!-- JS -->
+<script>
+var navLinks = document.getElementById("navLinks");
+
+function showMenu(){
+navLinks.style.right = "0";
+}
+
+function hideMenu(){
+navLinks.style.right = "-200px";
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training - AgroSolar</title>
+
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="sub-header training-header">
+
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="AgroSolar Logo">
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <i class="fa fa-times" onclick="hideMenu()"></i>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="training.html">TRAINING</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </div>
+
+    <i class="fa fa-bars" onclick="showMenu()"></i>
+  </nav>
+
+  <div class="header-text">
+    <h1>Training & Development</h1>
+    <p>Hands-on learning in AgroSolar innovation</p>
+  </div>
+
+</header>
+
+<!-- ================= PROGRAMS ================= -->
+<section class="programs-section">
+  <div class="container">
+
+    <h2>Training Programs</h2>
+
+    <div class="programs-container">
+
+      <div class="program-card">
+        <i class="fa-solid fa-solar-panel"></i>
+        <h3>Solar Technology</h3>
+        <p>Learn solar installation and energy systems for agriculture.</p>
+      </div>
+
+      <div class="program-card">
+        <i class="fa-solid fa-microchip"></i>
+        <h3>Device Development</h3>
+        <p>Build AgroSolar smart storage and monitoring devices.</p>
+      </div>
+
+      <div class="program-card">
+        <i class="fa-solid fa-seedling"></i>
+        <h3>Smart Agriculture</h3>
+        <p>Modern farming techniques powered by technology.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= TRAINING GALLERY ================= -->
+<section class="gallery-section">
+  <div class="container">
+
+    <!-- <h2>Training Gallery</h2> -->
+
+    <div class="gallery-container">
+      <img src="images/Students_on_hands_training.png" alt="">
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CERTIFICATES OFFER (NO DOWNLOAD) ================= -->
+<section class="certificate-offer">
+  <div class="container">
+
+    <h2>Certification Opportunities</h2>
+
+    <div class="certificate-container">
+
+      <div class="certificate-card">
+        <i class="fa-solid fa-award"></i>
+        <h3>AgroSolar Technician</h3>
+        <p>Awarded after completing hands-on device training.</p>
+      </div>
+
+      <div class="certificate-card">
+        <i class="fa-solid fa-award"></i>
+        <h3>Solar Installation</h3>
+        <p>Recognition for mastering solar system setup.</p>
+      </div>
+
+      <div class="certificate-card">
+        <i class="fa-solid fa-award"></i>
+        <h3>Agro Innovation</h3>
+        <p>Given to students who complete smart agriculture training.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<section class="footer">
+  <h4>About Us</h4>
+  <p>
+    AgroSolar helps farmers preserve crops using solar-powered technology.
+  </p>
+
+  <div class="icons">
+    <i class="fa-brands fa-facebook-f"></i>
+    <i class="fa-brands fa-twitter"></i>
+    <i class="fa-brands fa-instagram"></i>
+    <i class="fa-brands fa-linkedin-in"></i>
+  </div>
+
+  <p>Made with <i class="fa-regular fa-heart"></i> by AgroSolar</p>
+</section>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+var navLinks = document.getElementById("navLinks");
+
+function showMenu(){
+  navLinks.style.right = "0";
+}
+
+function hideMenu(){
+  navLinks.style.right = "-200px";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> My Profile</title>
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<section class="sub-header john-header">
+
+<nav>
+<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+
+<div class="nav-links" id="navLinks">
+<i class="fa fa-times" onclick="hideMenu()"></i>
+
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="about.html">ABOUT</a></li>
+<li><a href="services.html">SERVICES</a></li>
+<li><a href="blog.html">BLOG</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+</ul>
+</div>
+
+<i class="fa fa-bars" onclick="showMenu()"></i>
+</nav>
+
+<h1>My Profile</h1>
+
+</section>
+
+
+<!-- PROFILE CONTENT -->
+<section class="profile-section">
+
+  <img src="#" alt="Dr Brown" class="profile-img">
+
+  <div class="profile-text">
+    <h2>Dr Brown Paul</h2>
+
+    <p>
+      Dr Brown Paul is the Project Manager of AgroSolar with extensive experience in agricultural technology,
+      renewable energy systems, and sustainable farming innovation. He has contributed significantly to the design
+      and development of AgroSolar storage solutions aimed at reducing post-harvest losses in Nigeria and beyond.
+    </p>
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<section class="footer">
+<h4>About Us</h4>
+<p>AgroSolar helps farmers preserve crops using solar-powered technology.</p>
+
+<div class="icons">
+<i class="fa-brands fa-facebook-f"></i>
+<i class="fa-brands fa-twitter"></i>
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-linkedin-in"></i>
+</div>
+</section>
+
+<!-- JS -->
+<script>
+var navLinks = document.getElementById("navLinks");
+
+function showMenu(){
+navLinks.style.right = "0";
+}
+
+function hideMenu(){
+navLinks.style.right = "-200px";
+}
+</script>
+</body>
+</html>
