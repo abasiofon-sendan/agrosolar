@@ -50,29 +50,29 @@ function hideMenu() {
 
 const slides = [
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-01.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-01.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-02.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-02.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-03.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-03.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-04.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-04.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-05.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-05.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-06.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-06.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-07.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-07.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-08.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-08.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-09.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-09.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-10.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-10.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-11.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-11.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-12.png"
+    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-12.png"
 
 ];
 
