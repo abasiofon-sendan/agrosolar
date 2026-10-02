@@ -50,9 +50,9 @@ function hideMenu() {
 
 const slides = [
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-01.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/slide-01.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/Slide-02.png",
+    "ASTIC_Solar_Harvest_Pitch_Desk/slide-02.png",
 
     "ASTIC_Solar_Harvest_Pitch_Desk/Slide-03.png",
 
