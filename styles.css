@@ -74,14 +74,15 @@ nav img {
 	max-width: 900px;
 	color: #fff;
 	position: absolute;
-	top: 50%;
+	top: 60%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
 }
 
 .text-box h1 {
-	font-size: 50px;
+	font-size: 28px;
+  margin-bottom: -50px;
 }
 
 .text-box p{
@@ -530,6 +531,8 @@ nav .fa {
 .about-text {
 	line-height:1.8;
 	color:#444;
+  text-align: center;
+  font-size: 20px;
 }
 
 /* TEAM */
@@ -1518,4 +1521,2103 @@ nav {
     text-align: justify;
   }
 
+}
+
+
+/* Pitch Section */
+/* =====================================================
+   AGROSOLAR PITCH PRESENTATION
+   ===================================================== */
+
+.pitch-section {
+    width: 90%;
+    max-width: 1400px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.pitch-heading {
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.pitch-heading h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.pitch-heading p {
+    color: #666;
+    line-height: 1.7;
+}
+
+
+/* ================= PRESENTATION VIEWER ================= */
+
+.pitch-viewer {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    background: #111;
+    padding: 25px;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+
+/* ================= MAIN SLIDE ================= */
+
+.main-slide {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+.main-slide img {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+
+/* ================= CONTROLS ================= */
+
+.slide-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+
+.slide-controls button {
+    border: none;
+    padding: 12px 20px;
+    background: #ffffff;
+    color: #111;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+
+.slide-controls button:hover {
+    opacity: 0.85;
+}
+
+
+#slideNumber {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+
+/* ================= FULLSCREEN ================= */
+
+.fullscreen-container {
+    margin-top: 20px;
+}
+
+
+.fullscreen-btn {
+    border: none;
+    padding: 11px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* ================= THUMBNAILS ================= */
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+
+.slide-thumbnail {
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.55;
+    border: 3px solid transparent;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+
+.slide-thumbnail:hover {
+    opacity: 1;
+}
+
+
+.slide-thumbnail.active-thumbnail {
+    opacity: 1;
+    border: 3px solid #ffffff;
+}
+
+
+/* ================= FULLSCREEN MODE ================= */
+
+.pitch-viewer:fullscreen {
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.pitch-viewer:fullscreen .main-slide {
+    flex: 1;
+    height: 80vh;
+}
+
+
+.pitch-viewer:fullscreen .main-slide img {
+    max-height: 80vh;
+    max-width: 95vw;
+    object-fit: contain;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .pitch-section {
+        width: 95%;
+        margin: 50px auto;
+    }
+
+
+    .pitch-heading h1 {
+        font-size: 26px;
+    }
+
+
+    .pitch-heading p {
+        font-size: 14px;
+    }
+
+
+    .pitch-viewer {
+        padding: 10px;
+    }
+
+
+    .main-slide img {
+        max-height: 55vh;
+    }
+
+
+    .slide-controls {
+        gap: 10px;
+    }
+
+
+    .slide-controls button {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+
+    #slideNumber {
+        font-size: 12px;
+    }
+
+
+    .slide-thumbnail {
+        width: 90px;
+        height: 55px;
+    }
+
+}
+
+/* pitch_style_Home_Page */
+/* =========================================================
+   AGROSOLAR PITCH PRESENTATION SECTION
+   ========================================================= */
+
+.pitch-preview {
+    width: 90%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 70px 60px;
+    background: #f7f9f6;
+    border-radius: 18px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* ================= PITCH HEADER ================= */
+
+.pitch-header {
+    max-width: 780px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+
+.pitch-label {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #4f8a10;
+}
+
+
+.pitch-header h1 {
+    font-size: 36px;
+    line-height: 1.25;
+    margin: 0 0 18px;
+    color: #222;
+}
+
+
+.pitch-header p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #666;
+    margin: 0 auto;
+}
+
+
+/* ================= MAIN CONTENT ================= */
+
+.pitch-content {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 60px;
+    align-items: center;
+}
+
+
+/* ================= PRESENTATION IMAGE ================= */
+
+.pitch-image {
+    position: relative;
+}
+
+
+.pitch-image-frame {
+    position: relative;
+    width: 100%;
+    background: #111;
+    border-radius: 12px;
+    padding: 12px;
+    box-sizing: border-box;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+
+.pitch-image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+
+/* ================= IMAGE OVERLAY ================= */
+
+.pitch-image-overlay {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff;
+
+    opacity: 0;
+    transition: 0.35s;
+}
+
+
+.pitch-image-frame:hover .pitch-image-overlay {
+    opacity: 1;
+}
+
+
+.pitch-image-overlay i {
+    font-size: 14px;
+}
+
+
+.pitch-image-overlay span {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* ================= TEXT AREA ================= */
+
+.pitch-text {
+    padding: 10px 0;
+}
+
+
+.pitch-small-title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #4f8a10;
+}
+
+
+.pitch-text h2 {
+    margin: 12px 0 18px;
+    font-size: 30px;
+    line-height: 1.3;
+    color: #222;
+}
+
+
+.pitch-text > p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 28px;
+}
+
+
+/* ================= FEATURES ================= */
+
+.pitch-features {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+
+.pitch-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+.pitch-feature > i {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #e8f2df;
+    color: #4f8a10;
+    font-size: 17px;
+}
+
+
+.pitch-feature h3 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    color: #222;
+}
+
+
+.pitch-feature p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #777;
+}
+
+
+/* ================= BUTTON ================= */
+
+.pitch-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 24px;
+
+    background: #4f8a10;
+    color: #fff;
+
+    text-decoration: none;
+    border-radius: 5px;
+
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    transition: 0.3s;
+}
+
+
+.pitch-btn:hover {
+    background: #356507;
+    transform: translateY(-2px);
+}
+
+
+.pitch-btn i {
+    transition: 0.3s;
+}
+
+
+.pitch-btn:hover i {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PITCH SECTION - TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .pitch-preview {
+        width: 92%;
+        padding: 55px 35px;
+    }
+
+
+    .pitch-content {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+
+    .pitch-text {
+        max-width: 700px;
+        margin: auto;
+        text-align: center;
+    }
+
+
+    .pitch-features {
+        text-align: left;
+    }
+
+}
+
+
+/* =========================================================
+   PITCH SECTION - MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .pitch-preview {
+        width: 94%;
+        margin: 70px auto;
+        padding: 45px 20px;
+        border-radius: 12px;
+    }
+
+
+    .pitch-header {
+        margin-bottom: 35px;
+    }
+
+
+    .pitch-label {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+
+    .pitch-header h1 {
+        font-size: 26px;
+    }
+
+
+    .pitch-header p {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+
+    .pitch-content {
+        gap: 35px;
+    }
+
+
+    .pitch-image-frame {
+        padding: 7px;
+    }
+
+
+    .pitch-image-overlay {
+        left: 7px;
+        right: 7px;
+        bottom: 7px;
+        padding: 12px;
+    }
+
+
+    .pitch-text h2 {
+        font-size: 25px;
+    }
+
+
+    .pitch-text > p {
+        font-size: 13px;
+    }
+
+
+    .pitch-feature {
+        gap: 12px;
+    }
+
+
+    .pitch-feature > i {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 15px;
+    }
+
+
+    .pitch-btn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* =====================================================
+   PITCH PAGE HEADER - REDUCE HEIGHT ONLY
+   ===================================================== */
+
+.pitch-header-nav {
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+
+/* Keep the navigation visible */
+
+.pitch-header-nav nav {
+    position: relative;
+    z-index: 10;
+}
+
+
+/* Keep navigation links above the background */
+
+.pitch-header-nav .nav-links {
+    z-index: 20;
+}
+
+
+/* Keep the logo and menu icons visible */
+
+.pitch-header-nav nav > a,
+.pitch-header-nav nav > i {
+    position: relative;
+    z-index: 30;
+}
+/* =====================================================
+   LEARN MORE ABOUT ASTIC PROJECT
+   ===================================================== */
+
+.astic-project {
+    width: 90%;
+    max-width: 1200px;
+    margin: 90px auto;
+    padding: 65px 70px;
+
+    background: #f5f8f2;
+
+    border-radius: 15px;
+
+    box-sizing: border-box;
+}
+
+
+.astic-project-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 80px;
+}
+
+
+.astic-project-text {
+    flex: 0 1 650px;
+    padding-left: 35px;
+}
+
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    color: #4f8a10;
+}
+
+
+.astic-project-text h1 {
+    margin: 0 0 20px;
+
+    font-size: 34px;
+    line-height: 1.3;
+
+    color: #222;
+}
+
+
+.astic-project-text p {
+    margin-bottom: 15px;
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    color: #666;
+}
+
+
+.astic-project-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+    padding: 14px 22px;
+
+    background: #4f8a10;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.astic-project-btn:hover {
+    background: #356507;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   PDF DOCUMENT ICON
+   ===================================================== */
+
+.astic-project-icon {
+    width: 250px;
+    min-width: 250px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.document-icon {
+    width: 180px;
+    height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.12);
+
+    position: relative;
+}
+
+
+.document-icon::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 45px;
+    height: 45px;
+
+    background: #e8f0e2;
+
+    clip-path: polygon(0 0, 100% 100%, 100% 0);
+}
+
+
+.document-icon i {
+    font-size: 48px;
+
+    color: #d32f2f;
+
+    margin-bottom: 15px;
+}
+
+
+.document-icon span {
+    text-align: center;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+
+    letter-spacing: 1px;
+
+    color: #444;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+@media (max-width: 700px) {
+
+    .astic-project {
+        width: 94%;
+        margin: 65px auto;
+        padding: 45px 25px;
+    }
+
+    .astic-project-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .astic-project-text {
+        padding-left: 0;
+    }
+
+    .astic-project-text h1 {
+        font-size: 27px;
+    }
+
+    .astic-project-text p {
+        font-size: 13px;
+    }
+
+    .astic-project-btn {
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .astic-project-icon {
+        width: 100%;
+    }
+
+}
+
+/* =====================================================
+   ACTIVITIES GALLERY
+   ===================================================== */
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.gallery-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+}
+
+.gallery-item > img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-info {
+    padding: 22px;
+    text-align: left;
+}
+
+.activity-tag {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 5px 9px;
+    background: #eef4e9;
+    color: #4f8a10;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.gallery-info h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #222;
+}
+
+.gallery-info p {
+    margin: 0 0 18px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #666;
+}
+
+.gallery-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #4f8a10;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* ================= PDF CARD ================= */
+
+.pdf-preview {
+    height: 220px;
+    background: #f5f8f2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.pdf-preview i {
+    font-size: 55px;
+    color: #d32f2f;
+    margin-bottom: 15px;
+}
+
+.pdf-preview span {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+.pdf-preview strong {
+    margin-top: 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =====================================================
+AGROSOLAR BLOG PAGE
+===================================================== */
+
+/* =====================================================
+BLOG HEADER
+===================================================== */
+
+.blog-header {
+min-height: 55vh;
+position: relative;
+overflow: hidden;
+color: #fff;
+}
+
+.blog-header nav {
+position: relative;
+z-index: 10;
+}
+
+.blog-header .slider {
+position: absolute;
+inset: 0;
+z-index: 1;
+}
+
+.blog-header .slider span {
+position: absolute;
+inset: 0;
+background-position: center;
+background-size: cover;
+opacity: 0;
+animation: blogSlider 15s infinite;
+}
+
+.blog-header .slider span:nth-child(1) {
+animation-delay: 0s;
+}
+
+.blog-header .slider span:nth-child(2) {
+animation-delay: 5s;
+}
+
+.blog-header .slider span:nth-child(3) {
+animation-delay: 10s;
+}
+
+.blog-header .slider::after {
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(0, 0, 0, 0.52);
+}
+
+@keyframes blogSlider {
+
+```
+0% {
+    opacity: 0;
+}
+
+10% {
+    opacity: 1;
+}
+
+33% {
+    opacity: 1;
+}
+
+43% {
+    opacity: 0;
+}
+
+100% {
+    opacity: 0;
+}
+```
+
+}
+
+/* HEADER TEXT */
+
+.blog-header-text {
+position: relative;
+z-index: 5;
+width: 90%;
+max-width: 850px;
+margin: 0 auto;
+padding: 110px 20px 80px;
+text-align: center;
+}
+
+.blog-header-text span {
+display: inline-block;
+margin-bottom: 15px;
+font-size: 12px;
+font-weight: 600;
+letter-spacing: 3px;
+}
+
+.blog-header-text h1 {
+margin: 0 0 20px;
+font-size: 46px;
+line-height: 1.2;
+}
+
+.blog-header-text p {
+max-width: 650px;
+margin: 0 auto;
+font-size: 15px;
+line-height: 1.8;
+}
+
+/* =====================================================
+FEATURED BLOG
+===================================================== */
+
+.featured-blog {
+width: 90%;
+max-width: 1200px;
+margin: 90px auto;
+}
+
+.featured-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+align-items: stretch;
+background: #f5f8f2;
+border-radius: 12px;
+overflow: hidden;
+}
+
+.featured-image {
+min-height: 430px;
+}
+
+.featured-image img {
+width: 100%;
+height: 100%;
+display: block;
+object-fit: cover;
+}
+
+.featured-content {
+padding: 55px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.blog-tag {
+display: inline-block;
+width: fit-content;
+margin-bottom: 18px;
+padding: 7px 12px;
+background: #4f8a10;
+color: #fff;
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 1.5px;
+}
+
+.featured-content h2 {
+margin: 0 0 20px;
+font-size: 30px;
+line-height: 1.35;
+color: #222;
+}
+
+.featured-content p {
+margin: 0 0 13px;
+font-size: 14px;
+line-height: 1.8;
+color: #666;
+}
+
+.blog-btn {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+width: fit-content;
+margin-top: 12px;
+padding: 13px 20px;
+background: #4f8a10;
+color: #fff;
+text-decoration: none;
+font-size: 11px;
+font-weight: 600;
+transition: 0.3s;
+}
+
+.blog-btn:hover {
+background: #356507;
+transform: translateY(-2px);
+}
+
+/* =====================================================
+BLOG INTRODUCTION
+===================================================== */
+
+.blog-intro {
+width: 90%;
+max-width: 750px;
+margin: 100px auto 55px;
+text-align: center;
+}
+
+.section-label {
+display: inline-block;
+margin-bottom: 12px;
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 2px;
+color: #4f8a10;
+}
+
+.blog-intro h2 {
+margin: 0 0 18px;
+font-size: 32px;
+line-height: 1.35;
+color: #222;
+}
+
+.blog-intro p {
+margin: 0;
+font-size: 14px;
+line-height: 1.8;
+color: #666;
+}
+
+/* =====================================================
+BLOG ARTICLES
+===================================================== */
+
+.blog-articles {
+width: 90%;
+max-width: 1200px;
+margin: 0 auto 100px;
+}
+
+.articles-container {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 30px;
+}
+
+/* BLOG CARD */
+
+.blog-card {
+background: #fff;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+transition: 0.3s ease;
+}
+
+.blog-card:hover {
+transform: translateY(-6px);
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* IMAGE */
+
+.blog-card-image {
+position: relative;
+height: 220px;
+overflow: hidden;
+}
+
+.blog-card-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+transition: 0.4s ease;
+}
+
+.blog-card:hover .blog-card-image img {
+transform: scale(1.05);
+}
+
+/* IMAGE TAG */
+
+.blog-card-tag {
+position: absolute;
+left: 18px;
+bottom: 18px;
+padding: 6px 10px;
+background: #4f8a10;
+color: #fff;
+font-size: 9px;
+font-weight: 600;
+letter-spacing: 1px;
+}
+
+/* CARD CONTENT */
+
+.blog-card-content {
+padding: 25px 25px 28px;
+}
+
+.article-category {
+display: block;
+margin-bottom: 10px;
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 1.5px;
+color: #4f8a10;
+}
+
+.blog-card-content h3 {
+margin: 0 0 13px;
+font-size: 19px;
+line-height: 1.45;
+color: #222;
+}
+
+.blog-card-content p {
+margin: 0 0 10px;
+font-size: 13px;
+line-height: 1.75;
+color: #666;
+}
+
+.read-more {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+margin-top: 12px;
+color: #4f8a10;
+text-decoration: none;
+font-size: 10px;
+font-weight: 600;
+letter-spacing: 1px;
+}
+
+.read-more:hover {
+color: #356507;
+}
+
+/* =====================================================
+CATEGORIES
+===================================================== */
+
+.blog-categories {
+width: 100%;
+padding: 85px 0;
+background: #f7f9f5;
+}
+
+.categories-container {
+width: 90%;
+max-width: 1200px;
+margin: auto;
+}
+
+.categories-heading {
+max-width: 700px;
+margin: 0 auto 50px;
+text-align: center;
+}
+
+.categories-heading h2 {
+margin: 0 0 15px;
+font-size: 31px;
+color: #222;
+}
+
+.categories-heading p {
+margin: 0;
+font-size: 14px;
+line-height: 1.8;
+color: #666;
+}
+
+/* CATEGORY GRID */
+
+.category-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 25px;
+}
+
+.category-item {
+padding: 30px 25px;
+background: #fff;
+text-align: center;
+border-radius: 8px;
+transition: 0.3s ease;
+}
+
+.category-item:hover {
+transform: translateY(-4px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.category-item i {
+margin-bottom: 15px;
+font-size: 28px;
+color: #4f8a10;
+}
+
+.category-item h3 {
+margin: 0 0 10px;
+font-size: 17px;
+color: #222;
+}
+
+.category-item p {
+margin: 0;
+font-size: 12px;
+line-height: 1.7;
+color: #666;
+}
+
+/* =====================================================
+BLOG CTA
+===================================================== */
+
+.blog-cta {
+text-align: center;
+}
+
+.blog-cta p {
+margin: 0 auto 25px;
+color: #666;
+font-size: 14px;
+}
+
+/* =====================================================
+MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 900px) {
+
+```
+.blog-header-text h1 {
+    font-size: 38px;
+}
+
+.featured-container {
+    grid-template-columns: 1fr;
+}
+
+.featured-image {
+    min-height: 350px;
+}
+
+.featured-content {
+    padding: 40px;
+}
+
+.articles-container {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.category-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+```
+
+}
+
+@media (max-width: 700px) {
+
+```
+.blog-header {
+    min-height: 60vh;
+}
+
+.blog-header-text {
+    padding: 80px 15px 60px;
+}
+
+.blog-header-text h1 {
+    font-size: 31px;
+}
+
+.blog-header-text p {
+    font-size: 13px;
+}
+
+.featured-blog {
+    width: 92%;
+    margin: 65px auto;
+}
+
+.featured-image {
+    min-height: 270px;
+}
+
+.featured-content {
+    padding: 30px 25px;
+}
+
+.featured-content h2 {
+    font-size: 25px;
+}
+
+.featured-content p {
+    font-size: 13px;
+}
+
+.blog-intro {
+    width: 92%;
+    margin: 70px auto 40px;
+}
+
+.blog-intro h2 {
+    font-size: 26px;
+}
+
+.blog-articles {
+    width: 92%;
+    margin-bottom: 70px;
+}
+
+.articles-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.blog-card-image {
+    height: 230px;
+}
+
+.blog-categories {
+    padding: 65px 0;
+}
+
+.category-grid {
+    grid-template-columns: 1fr;
+}
+```
+
+}
+
+/* =========================================================
+   CORE FOCUS
+========================================================= */
+
+.core-focus {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 85px 0;
+
+    background: #ffffff;
+
+}
+
+
+/* CORE GRID
+   DESKTOP = 4 COLUMNS × 2 ROWS
+*/
+
+.core-focus-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    grid-template-rows:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+
+/* CORE CARD */
+
+.core-card {
+
+    min-height: 205px;
+
+    padding: 25px 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f5fbf3
+        );
+
+    border: 1px solid var(--border-green);
+
+    border-radius: 15px;
+
+    transition: 0.3s ease;
+
+}
+
+
+.core-card:hover {
+
+    transform: translateY(-7px);
+
+    border-color: #a8d3a6;
+
+    box-shadow:
+        0 12px 30px rgba(0, 80, 40, 0.12);
+
+}
+
+
+/* CORE ICON */
+
+.core-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 28px;
+
+    margin-bottom: 15px;
+
+    box-shadow:
+        0 5px 12px rgba(0, 0, 0, 0.08);
+
+}
+
+
+.core-card h3 {
+
+    max-width: 220px;
+
+    color: #183f29;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    font-weight: 600;
+
+}
+
+
+/* CORE ICON COLOURS */
+
+.solar-icon {
+
+    background: #66b91f;
+
+}
+
+
+.cold-icon {
+
+    background: #158fd0;
+
+}
+
+
+.food-icon {
+
+    background: #f1bd17;
+
+}
+
+
+.recycle-icon {
+
+    background: #087d42;
+
+}
+
+
+.chemistry-icon {
+
+    background: #66358e;
+
+}
+
+
+.tech-icon {
+
+    background: #f07f2e;
+
+}
+
+
+.research-icon {
+
+    background: #168d8a;
+
+}
+
+
+.collaboration-icon {
+
+    background: #17629b;
+
+}
+
+
+/* =========================================================
+   ASTIC MOTTO
+========================================================= */
+
+.astic-motto {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 0 auto 75px;
+
+    padding: 20px 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #075d30,
+            #087c3f
+        );
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 35px rgba(0, 80, 40, 0.16);
+
+}
+
+
+/* MOTTO CONTAINER */
+
+.motto-container {
+
+    min-height: 135px;
+
+    display: grid;
+
+    grid-template-columns: 130px 1fr 130px;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+/* LEAF IMAGES */
+
+.motto-image {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.motto-image img {
+
+    width: 95px;
+
+    height: 95px;
+
+    object-fit: contain;
+
+}
+
+
+/* RIGHT LEAF */
+
+.motto-image:last-child img {
+
+    transform: scaleX(-1);
+
+}
+
+
+/* MOTTO CONTENT */
+
+.motto-content {
+
+    text-align: center;
+
+    color: #ffffff;
+
+}
+
+
+.motto-label {
+
+    display: block;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 5px;
+
+    color: #dcebd4;
+
+}
+
+
+.motto-content h2 {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 13px;
+
+    font-size: clamp(26px, 4vw, 42px);
+
+    line-height: 1.1;
+
+    margin-bottom: 8px;
+
+    font-style: italic;
+
+}
+
+
+.motto-content h2 span {
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+}
+
+
+.motto-content h2 span:nth-of-type(2) {
+
+    color: #f5bd18;
+
+}
+
+
+.motto-content h2 strong {
+
+    color: #a8cf42;
+
+    font-size: 28px;
+
+}
+
+
+.motto-content p {
+
+    font-size: 11px;
+
+    letter-spacing: 0.5px;
+
+    color: #ffffff;
+
+}
+
+
+/* =========================================================
+   PARTNERS
+========================================================= */
+
+.partners {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 0 0 85px;
+
+}
+
+
+/* PARTNER GRID */
+
+.partners-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+}
+
+
+/* PARTNER CARD */
+
+.partner-card {
+
+    min-height: 245px;
+
+    padding: 25px 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border-green);
+
+    border-radius: 17px;
+
+    transition: 0.3s ease;
+
+}
+
+
+.partner-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow);
+
+}
+
+
+/* PARTNER IMAGE */
+
+.partner-image {
+
+    width: 125px;
+
+    height: 110px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 15px;
+
+}
+
+
+.partner-image img {
+
+    max-width: 115px;
+
+    max-height: 100px;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+}
+
+
+/* PARTNER TEXT */
+
+.partner-card h3 {
+
+    color: var(--dark-green);
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    margin-bottom: 4px;
+
+}
+
+
+.partner-card p {
+
+    color: var(--text-grey);
+
+    font-size: 11px;
+
+}
+
+
+/* Container is now transparent and takes up zero unnecessary space */
+.animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px; /* Increased padding slightly to accommodate the larger text size */
+    background: transparent; /* Background removed completely */
+    overflow: hidden; 
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* The target paragraph tag styling - now larger and pure white */
+.animated-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 3.2rem; /* Increased from 2.5rem to make it a little bigger */
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.5;
+    color: #ffffff; /* Explicit pure white text color */
+    margin: 0; 
+    white-space: nowrap; 
+    position: absolute; 
+    left: 50%;
+    
+    /* Smooth 14-second back-and-forth movement */
+    animation: scrollAndZoom 14s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;
+}
+
+/* Highlights for emphasis on the second line */
+.animated-text span {
+    font-size: 2.2rem; /* Increased from 1.8rem to match the main text scale */
+    font-weight: normal;
+    color: #a7f3d0; /* A soft, premium light-green tint matching an Agro/Solar aesthetic against white text */
+    display: block; 
+    margin-top: 10px;
+}
+
+/* Keyframes combining absolute left positioning and transforms for accurate centering */
+@keyframes scrollAndZoom {
+    0% {
+        transform: translate(-100vw, -50%) scale(0.8); 
+        opacity: 0;
+    }
+    35% {
+        transform: translate(-50%, -50%) scale(1); 
+        opacity: 1;
+    }
+    65% {
+        transform: translate(-50%, -50%) scale(1.08); 
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100vw, -50%) scale(0.8); 
+        opacity: 0;
+    }
+}
+/* --- TEAM & STUDENT SECTION FIXES --- */
+
+/* --- PROFESSIONAL 4x2 GRID CONFIGURATION --- */
+
+.team-container {
+    display: grid;
+    /* Creates 4 identical columns of equal width */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; 
+    padding: 30px 0;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    box-sizing: border-box;
+}
+
+.team-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 25px 20px; 
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    
+    display: flex;
+    flex-direction: column;
+    
+    /* FIX: Absolute height constraint forces every card to be identical */
+    height: 450px; 
+}
+
+/* Forces all internal images to scale uniformly */
+.team-card img {
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 25%;
+    margin: 0 auto 15px auto;
+    display: block;
+    background-color: #e2e8f0;
+}
+
+/* OPTIONAL STYLE POLISH: Centers the 3 cards on the second row */
+@media (min-width: 993px) {
+    /* Shifts the 5th card (Dr. Sunday Ekpo) to start slightly inward */
+    .team-container .team-card:nth-child(5) {
+        grid-column-start: 1; /* Adjusts alignment to start on the lower row */
+    }
+}
+
+/* --- MOBILE RESPONSIVENESS (Splits the 4x2 automatically on smaller devices) --- */
+@media (max-width: 992px) {
+    .team-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .team-container {
+        grid-template-columns: 1fr; /* 1 column on mobile phones */
+        gap: 20px;
+    }
 }

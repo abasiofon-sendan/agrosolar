@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Roseline Aladi</title>
+<link rel="stylesheet" href="styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<section class="sub-header john-header">
+
+<nav>
+<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+
+<div class="nav-links" id="navLinks">
+<i class="fa fa-times" onclick="hideMenu()"></i>
+
+<ul>
+<li><a href="index.html">HOME</a></li>
+<li><a href="about.html">ABOUT</a></li>
+<li><a href="services.html">SERVICES</a></li>
+<li><a href="blog.html">BLOG</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+</ul>
+</div>
+
+<i class="fa fa-bars" onclick="showMenu()"></i>
+</nav>
+
+<h1>My Profile</h1>
+
+</section>
+
+
+<!-- PROFILE CONTENT -->
+<section class="profile-section">
+
+  <div class="profile-container">
+
+    <!-- IMAGE -->
+    <img src="images/Roseline_Aladi.jpeg" alt="Rose" class="profile-img">
+
+    <!-- TEXT -->
+    <div class="profile-text">
+       <h2>Emmanuel Roseline Aladi</h2>
+
+    <p>Emmanuel Roseline Aladi was born on 11th November 2002 in Osun State, Nigeria. She is a student of Science Laboratory Technology, specializing in Microbiology, at Benue State Polytechnic, Ugbokolo. Her academic training has strengthened her interest in food preservation, microbial safety, and sustainable solutions to post-harvest losses.
+     As a participant in the AgroSolar TechnoPreneurship and Innovation Centre (ASTIC) project, she is a member of the team developing Solar Harvest, a solar-powered refrigeration system  designed to preserve perishable agricultural products. Through the Solar Harvest project, she seeks to apply her knowledge of Microbiology to promote safe food preservation, reduce food spoilage and post-harvest losses, and contribute to sustainable agricultural development and improved food security. She is committed to scientific innovation, continuous learning, teamwork, and the practical application of scientific knowledge to real-world challenges.
+    </p>
+    </div>
+
+  </div>
+<a href="team.html" class="team-btn">← Back to Team</a>
+</section>
+
+
+<!-- FOOTER -->
+<section class="footer">
+<h4>About Us</h4>
+<p>AgroSolar helps farmers preserve crops using solar-powered technology.</p>
+
+<div class="icons">
+<i class="fa-brands fa-facebook-f"></i>
+<i class="fa-brands fa-twitter"></i>
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-linkedin-in"></i>
+</div>
+</section>
+
+<!-- JS -->
+<script>
+var navLinks = document.getElementById("navLinks");
+
+function showMenu(){
+navLinks.style.right = "0";
+}
+
+function hideMenu(){
+navLinks.style.right = "-200px";
+}
+</script>
+</body>
+</html>

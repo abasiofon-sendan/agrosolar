@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgroSolar Pitch Presentation | ASTIC</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <!-- ================= HEADER ================= -->
+
+<!-- ================= HEADER ================= -->
+
+<section class="header pitch-header-nav">
+
+    <nav>
+
+        <a href="index.html">
+            <img src="images/logo.png" alt="AgroSolar ASTIC Logo">
+        </a>
+
+        <div class="nav-links" id="navLinks">
+
+            <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="services.html">SERVICES</a></li>
+                <li><a href="pitch.html" class="active">PITCH</a></li>
+                <li><a href="blog.html">BLOG</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+
+        </div>
+
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+
+    </nav>
+
+</section>
+
+    <!-- ================= PITCH SECTION ================= -->
+
+    <section class="pitch-section">
+
+        <div class="pitch-heading">
+
+            <h1>AgroSolar Pitch Presentation</h1>
+
+            <p>
+                Explore the AgroSolar Technopreneurship and Innovation Centre
+                (ASTIC) pitch presentation and discover our vision, innovation,
+                technology, partnerships and impact.
+            </p>
+
+        </div>
+
+
+        <!-- ================= PRESENTATION VIEWER ================= -->
+
+        <div class="pitch-viewer" id="slideViewer">
+
+            <!-- MAIN SLIDE -->
+
+            <div class="main-slide">
+
+                <img
+                    id="currentSlide"
+                    src="ASTIC_Solar_Harvest_Pitch_Desk/slide-01.png"
+                    alt="AgroSolar Pitch Presentation Slide 1">
+
+            </div>
+
+
+            <!-- CONTROLS -->
+
+            <div class="slide-controls">
+
+                <button onclick="previousSlide()" aria-label="Previous Slide">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    Previous
+                </button>
+
+
+                <span id="slideNumber">
+                    Slide 1 of 12
+                </span>
+
+
+                <button onclick="nextSlide()" aria-label="Next Slide">
+                    Next
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+            </div>
+
+
+            <!-- FULLSCREEN BUTTON -->
+
+            <div class="fullscreen-container">
+
+                <button onclick="openFullscreen()" class="fullscreen-btn">
+                    <i class="fa-solid fa-expand"></i>
+                    Full Screen
+                </button>
+
+            </div>
+
+
+            <!-- THUMBNAILS -->
+
+            <div class="thumbnails" id="thumbnails"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <!-- FOOTER -->
+
+<section class="footer">
+
+    <h4>About Us</h4>
+
+    <p>
+        AgroSolar helps farmers preserve crops using solar-powered technology.
+    </p>
+
+    <div class="icons">
+
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linkedin-in"></i>
+
+    </div>
+
+    <p>
+        Made with
+        <i class="fa-regular fa-heart"></i>
+        by AgroSolar
+    </p>
+
+</section>
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

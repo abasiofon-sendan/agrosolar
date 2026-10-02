@@ -1,142 +1,666 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Blog - AgroSolar</title>
 
 <link rel="stylesheet" href="styles.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
+
 <section class="blog-header">
+
 <nav>
-<a href="index.html"><img src="images/logo.png"></a>
+
+<a href="index.html">
+<img src="images/logo.png" alt="AgroSolar Logo">
+</a>
 
 <div class="nav-links" id="navLinks">
+
 <i class="fa fa-times" onclick="hideMenu()"></i>
 
 <ul>
-<li><a href="index.html">HOME</a></li>
-<li><a href="about.html">ABOUT</a></li>
-<li><a href="services.html">SERVICES</a></li>
-<li><a href="blog.html" class="active">BLOG</a></li>
-<li><a href="contact.html">CONTACT</a></li>
+
+<li>
+<a href="index.html">HOME</a>
+</li>
+
+<li>
+<a href="about.html">ABOUT</a>
+</li>
+
+<li>
+<a href="services.html">SERVICES</a>
+</li>
+
+<li>
+<a href="activities.html">ACTIVITIES</a>
+</li>
+
+<li>
+<a href="pitch.html">PITCH</a>
+</li>
+
+<li>
+<a href="blog.html" class="active">BLOG</a>
+</li>
+
+<li>
+<a href="contact.html">CONTACT</a>
+</li>
+
 </ul>
+
 </div>
 
 <i class="fa fa-bars" onclick="showMenu()"></i>
+
 </nav>
 
-<!-- BACKGROUND SLIDES -->
+<!-- BACKGROUND SLIDER -->
+
 <div class="slider">
-  <span style="background-image: url('images/Inside_Solar_Plant.png');"></span>
-  <span style="background-image: url('images/AgroSolar_Farmlan.png');"></span>
-  <span style="background-image: url('images/Farmers_AgroSolar product.png');"></span>
-</div>
 
-<h1>AgroSolar Insights & Innovation</h1>
-</section>
+<span style="background-image: url('images/Inside_Solar_Plant.png');"></span>
 
-<!-- BLOG CONTENT -->
-<section class="blog-content">
+<span style="background-image: url('images/AgroSolar_Farmlan.png');"></span>
 
-<div class="row">
-
-<div class="blog-left">
-
-<img src="images/Inside_Solar_Plant.png">
-
-<h2>Revolutionizing Agriculture with Solar-Powered Storage</h2>
-
-<p>
-Agriculture remains the backbone of many African economies, yet post-harvest losses continue to threaten food security and farmer income. AgroSolar introduces an innovative solution — a solar-powered cold storage system designed to preserve perishable crops such as tomatoes, vegetables, and fruits without relying on unstable electricity.
-</p>
-
-<p>
-This technology harnesses renewable solar energy to power a refrigeration unit that keeps harvested produce fresh for longer periods. By doing so, farmers can reduce waste, stabilize market prices, and increase their profitability.
-</p>
-
-<p>
-The AgroSolar device is not just a storage system; it is a step toward sustainable agriculture. It promotes clean energy usage while addressing real-life challenges faced by rural farmers.
-</p>
-
-<h2>Training the Next Generation of Agro-Tech Innovators</h2>
-
-<p>
-At AgroSolar Technopreneurship and Innovation Centre (ASTIC), students and young entrepreneurs are trained to design, build, and maintain solar-powered agro devices. This hands-on training bridges the gap between theory and real-world application.
-</p>
-
-<p>
-Participants gain practical skills in solar installation, electrical systems, and agricultural technology. The program empowers them to become job creators, innovators, and solution providers in their communities.
-</p>
+<span style="background-image: url('images/Farmers_AgroSolar product.png');"></span>
 
 </div>
 
-<div class="blog-right">
+<div class="blog-header-text">
 
-<h3>Categories</h3>
+<span>AGROSOLAR BLOG</span>
 
-<div><span>AgroSolar Technology</span><span>12</span></div>
-<div><span>Training & Development</span><span>8</span></div>
-<div><span>Renewable Energy</span><span>10</span></div>
-<div><span>Farmer Support</span><span>6</span></div>
+<h1>Insights, Stories & Updates</h1>
 
-<h3>Recent Posts</h3>
-
-<p>✔ How Solar Cold Storage Reduces Food Waste</p>
-<p>✔ Empowering Farmers Through Innovation</p>
-<p>✔ Clean Energy Solutions in Agriculture</p>
-
-</div>
+<p>
+Discover the innovation, people, activities and progress
+behind the AgroSolar Technopreneurship and Innovation Centre.
+</p>
 
 </div>
 
 </section>
 
-<!-- CTA -->
-<section class="cta">
-<h1>Join Our AgroSolar Training Today</h1>
-<a href="contact.html" class="hero-btn">CONTACT US</a>
+<!-- =====================================================
+     FEATURED POST
+     ===================================================== -->
+
+<section class="featured-blog">
+
+<div class="featured-container">
+
+<div class="featured-image">
+
+<img
+src="ASTIC_Solar_Harvest_Pitch_Desk/Site_Touring_Uniuyo1.jpeg"
+alt="AgroSolar Harvest solar-powered agricultural device">
+
+</div>
+
+<div class="featured-content">
+
+<span class="blog-tag">
+PROJECT MILESTONE
+</span>
+
+<h2>
+AgroSolar Harvest Prototype:
+Turning Solar Energy into a Practical Agricultural Solution
+</h2>
+
+<p>
+The AgroSolar Technopreneurship and Innovation Centre (ASTIC)
+has reached an important project milestone with the development
+of the AgroSolar Harvest prototype.
+</p>
+
+<p>
+The solar-powered agricultural storage solution is designed to
+support the preservation of perishable produce and contribute
+to efforts to reduce post-harvest losses.
+</p>
+
+<p>
+With the prototype now built, the project has moved into the
+next stage of testing, evaluation, refinement and demonstration.
+</p>
+
+<a href="#articles" class="blog-btn">
+READ STORY
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- FOOTER -->
+<!-- =====================================================
+     BLOG INTRO
+     ===================================================== -->
+
+<section class="blog-intro">
+
+<span class="section-label">
+AGROSOLAR STORIES
+</span>
+
+<h2>
+Building Innovation Through Knowledge and Collaboration
+</h2>
+
+<p>
+The AgroSolar blog documents the journey of ASTIC — from
+concept development and prototype construction to student
+training, project presentations, partnerships and the next
+stage of innovation.
+</p>
+
+</section>
+
+<!-- =====================================================
+     BLOG ARTICLES
+     ===================================================== -->
+
+<section class="blog-articles" id="articles">
+
+<div class="articles-container">
+
+<!-- ARTICLE 1 -->
+
+<article class="blog-card">
+
+<div class="blog-card-image">
+
+<img
+src="Prototype_Agro_Solar_Refrigerator/Protype_Solar_Harvest.jpeg"
+alt="AgroSolar Harvest prototype">
+
+<span class="blog-card-tag">
+AGROSOLAR INNOVATION
+</span>
+
+</div>
+
+<div class="blog-card-content">
+
+<span class="article-category">
+PROJECT MILESTONE
+</span>
+
+<h3>
+AgroSolar Harvest Prototype: From Innovation to Practical Solution
+</h3>
+
+<p>
+The completion of the AgroSolar Harvest prototype represents
+an important step in applying renewable energy and engineering
+innovation to agricultural challenges.
+</p>
+
+<p>
+The prototype provides a practical platform for testing,
+evaluation, refinement and future demonstration.
+</p>
+
+<a href="#" class="read-more">
+READ MORE
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</article>
+
+<!-- ARTICLE 2 -->
+
+<article class="blog-card">
+
+<div class="blog-card-image">
+
+<img
+src="Prototype_Agro_Solar_Refrigerator/Prototype_SolarHarvest_device.jpeg"
+alt="AgroSolar technology development">
+
+<span class="blog-card-tag">
+PROJECT DEVELOPMENT
+</span>
+
+</div>
+
+<div class="blog-card-content">
+
+<span class="article-category">
+FROM CONCEPT TO PROTOTYPE
+</span>
+
+<h3>
+Building the AgroSolar Harvest
+</h3>
+
+<p>
+Every innovation begins with a problem that needs a practical
+solution. AgroSolar began by addressing challenges associated
+with the preservation of agricultural produce.
+</p>
+
+<p>
+Through collaboration between researchers, engineers and
+students, the concept progressed into a physical prototype.
+</p>
+
+<a href="#" class="read-more">
+READ MORE
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</article>
+
+<!-- ARTICLE 3 -->
+
+<article class="blog-card">
+
+<div class="blog-card-image">
+
+<img
+src="images/Students_on_hands_training.png"
+alt="Students participating in AgroSolar hands-on training">
+
+<span class="blog-card-tag">
+STUDENT INNOVATION
+</span>
+
+</div>
+
+<div class="blog-card-content">
+
+<span class="article-category">
+TRAINING & DEVELOPMENT
+</span>
+
+<h3>
+Learning by Building: Students Engage with AgroSolar Technology
+</h3>
+
+<p>
+ASTIC provides students with opportunities to move beyond
+the classroom and engage with practical technology and
+agricultural innovation.
+</p>
+
+<p>
+Hands-on activities help participants develop technical,
+problem-solving, teamwork and entrepreneurial skills.
+</p>
+
+<a href="#" class="read-more">
+READ MORE
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</article>
+
+<!-- ARTICLE 4 -->
+
+<article class="blog-card">
+
+<div class="blog-card-image">
+
+<img
+src="Asset_Conference_Solar_Harvest_Pix/PIX1.jpeg"
+alt="AgroSolar project presentation">
+
+<span class="blog-card-tag">
+CONFERENCE
+</span>
+
+</div>
+
+<div class="blog-card-content">
+
+<span class="article-category">
+CONFERENCES & PRESENTATIONS
+</span>
+
+<h3>
+Taking AgroSolar Innovation to Conferences and Public Presentations
+</h3>
+
+<p>
+Sharing the AgroSolar innovation through conferences,
+presentations and other engagements creates opportunities
+for knowledge exchange and discussion.
+</p>
+
+<p>
+These activities allow the project team to communicate the
+project objectives, technology and potential contribution
+to sustainable agriculture.
+</p>
+
+<a href="#" class="read-more">
+READ MORE
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</article>
+
+<!-- ARTICLE 5 -->
+
+<article class="blog-card">
+
+<div class="blog-card-image">
+
+<img
+src="Ghana_images/Ghana_Pix1.jpeg"
+alt="AgroSolar collaboration and innovation">
+
+<span class="blog-card-tag">
+PARTNERSHIP
+</span>
+
+</div>
+
+<div class="blog-card-content">
+
+<span class="article-category">
+COLLABORATION
+</span>
+
+<h3>
+Collaboration at the Heart of the ASTIC Project
+</h3>
+
+<p>
+Collaboration is an important part of the AgroSolar project,
+bringing together different institutions, disciplines and
+areas of expertise.
+</p>
+
+<p>
+The partnership supports knowledge exchange, innovation,
+practical skills development and sustainable agricultural
+technology.
+</p>
+
+<a href="#" class="read-more">
+READ MORE
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</article>
+
+<!-- ARTICLE 6 -->
+
+<article class="blog-card">
+
+<div class="blog-card-image">
+
+<img
+src="ASTIC_Solar_Harvest_Pitch_Desk/slide-01.png"
+alt="AgroSolar prototype and future development">
+
+<span class="blog-card-tag">
+NEXT STAGE
+</span>
+
+</div>
+
+<div class="blog-card-content">
+
+<span class="article-category">
+WHAT COMES NEXT?
+</span>
+
+<h3>
+What Comes After the AgroSolar Prototype?
+</h3>
+
+<p>
+Building the prototype is an important achievement, but it
+also provides the foundation for the next phase of the project.
+</p>
+
+<p>
+The next stage includes testing, evaluation, refinement,
+demonstration and continued learning from the prototype.
+</p>
+
+<a href="#" class="read-more">
+READ MORE
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     PROJECT CATEGORIES
+     ===================================================== -->
+
+<section class="blog-categories">
+
+<div class="categories-container">
+
+<div class="categories-heading">
+
+<span class="section-label">
+EXPLORE AGROSOLAR
+</span>
+
+<h2>
+Explore Our Areas of Work
+</h2>
+
+<p>
+Follow the different areas of activity that contribute to
+the AgroSolar project and ASTIC innovation ecosystem.
+</p>
+
+</div>
+
+<div class="category-grid">
+
+<div class="category-item">
+
+<i class="fa-solid fa-solar-panel"></i>
+
+<h3>
+AgroSolar Innovation
+</h3>
+
+<p>
+Solar-powered solutions for agricultural applications.
+</p>
+
+</div>
+
+<div class="category-item">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+<h3>
+Training & Development
+</h3>
+
+<p>
+Practical learning and skills development for students.
+</p>
+
+</div>
+
+<div class="category-item">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>
+Partnerships
+</h3>
+
+<p>
+Collaboration, knowledge exchange and institutional engagement.
+</p>
+
+</div>
+
+<div class="category-item">
+
+<i class="fa-solid fa-microphone"></i>
+
+<h3>
+Conferences & Events
+</h3>
+
+<p>
+Project presentations, exhibitions and innovation engagements.
+</p>
+
+</div>
+
+<div class="category-item">
+
+<i class="fa-solid fa-seedling"></i>
+
+<h3>
+Smart Agriculture
+</h3>
+
+<p>
+Technology-driven approaches to sustainable agriculture.
+</p>
+
+</div>
+
+<div class="category-item">
+
+<i class="fa-solid fa-lightbulb"></i>
+
+<h3>
+Research & Insights
+</h3>
+
+<p>
+Ideas, lessons and knowledge emerging from the project.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     CALL TO ACTION
+     ===================================================== -->
+
+<section class="cta blog-cta">
+
+<h1>
+Discover the AgroSolar Innovation Journey
+</h1>
+
+<p>
+Learn more about our activities, partnerships, technology
+and opportunities for collaboration.
+</p>
+
+<a href="contact.html" class="hero-btn">
+CONTACT US
+</a>
+
+</section>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
 <section class="footer">
-<h4>About AgroSolar</h4>
+
+<h4>About Us</h4>
 
 <p>
-AgroSolar is committed to reducing post-harvest losses through solar-powered innovation, empowering <br>farmers, and promoting sustainable agriculture across Africa.
+AgroSolar helps farmers preserve crops using
+solar-powered technology.
 </p>
 
 <div class="icons">
+
 <i class="fa-brands fa-facebook-f"></i>
+
 <i class="fa-brands fa-twitter"></i>
+
 <i class="fa-brands fa-instagram"></i>
+
 <i class="fa-brands fa-linkedin-in"></i>
+
 </div>
 
-<p>Made with <i class="fa-regular fa-heart"></i> by AgroSolar</p>
+<p>
+Made with
+<i class="fa-regular fa-heart"></i>
+by AgroSolar
+</p>
+
 </section>
 
-<!-- JS -->
+<!-- =====================================================
+     MOBILE NAVIGATION
+     ===================================================== -->
+
 <script>
+
 var navLinks = document.getElementById("navLinks");
 
 function showMenu(){
-navLinks.style.right = "0";
+
+    navLinks.style.right = "0";
+
 }
 
 function hideMenu(){
-navLinks.style.right = "-200px";
+
+    navLinks.style.right = "-200px";
+
 }
+
 </script>
 
 </body>
+
 </html>
