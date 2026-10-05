@@ -5219,6 +5219,22 @@ body.member-page {
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    flex-wrap: wrap;
+}
+
+.member-nav-prev,
+.member-nav-next {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.member-nav-prev {
+    justify-content: flex-start;
+}
+
+.member-nav-next {
+    justify-content: flex-end;
+    text-align: right;
 }
 
 .member-nav-link {
