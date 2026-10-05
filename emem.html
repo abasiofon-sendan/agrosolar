@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emem Ekpo</title>
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -12,13 +14,15 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-  </head>
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 
-  <body>
-    <section class="sub-header john-header">
-      <nav>
-        <a href="index.html"><img src="images/logo.png" alt="logo" /></a>
+</head>
 
+  <body class="member-page">
+    <header class="glass-header">
+        <a href="index.html" class="brand"><span class="logo-circle"><img src="images/AgroSolar_logo.png" alt="AgroSolar ASTIC Logo" /></span><span class="wordmark">ASTIC</span></a>
+
+        <nav class="glass-nav">
         <div class="nav-links" id="navLinks">
           <i class="fa fa-times" onclick="hideMenu()"></i>
 
@@ -32,25 +36,29 @@
         </div>
 
         <i class="fa fa-bars" onclick="showMenu()"></i>
-      </nav>
+        </nav>
+      </header>
 
-      <h1>My Profile</h1>
-    </section>
+      
 
     <!-- PROFILE CONTENT -->
-    <section class="profile-section">
-      <div class="profile-container">
-        <!-- IMAGE -->
-        <img
+    <section data-nav="dark" class="member">
+      <div class="member-wrap">
+        <div class="member-photo"><img
           src="images/Emem_Ekpo_Photograph_recent.png"
-          alt="Emem"
-          class="profile-img"
-        />
+          alt="Portrait of Emem Ekpo"
+          loading="lazy" decoding="async" width="600" height="600"
+        /></div>
 
-        <!-- TEXT -->
-        <div class="profile-text">
-          <h2>Emem Ekpo</h2>
+        <div class="member-body">
+          <p class="member-kicker">Agrosolar Team</p>
+          <h1>Emem Ekpo</h1>
+          <p class="member-role">Co-Researcher, D'GEES</p>
+          <p class="member-qual">B.Sc Computer Science</p>
 
+          <hr class="member-rule">
+
+          <div class="member-bio">
           <p>
             I am a Computer Scientist, Geographic Information Systems (GIS)
             specialist, Educator, Web Developer, and Co-Researcher with
@@ -108,13 +116,19 @@
             management, digital innovation, entrepreneurship, and capacity
             development.
           </p>
+          </div>
+
+          <nav class="member-nav" aria-label="Team member">
+            <a class="member-nav-link member-nav-prev" href="engr_mfon.html"><span aria-hidden="true">&larr;</span> Previous</a>
+            <a class="member-nav-link" href="team.html">All Team</a>
+            <a class="member-nav-link member-nav-next" href="dr_itoro.html">Next <span aria-hidden="true">&rarr;</span></a>
+          </nav>
         </div>
       </div>
-      <a href="team.html" class="team-btn">← Back to Team</a>
     </section>
 
     <!-- PROFILE CONTENT
-<section class="profile-section">
+<section data-nav="light" class="profile-section">
 
   <img src="images/Emem_Ekpo_Photograph_recent.png" alt="Emem Ekpo" class="profile-img">
 
@@ -131,17 +145,38 @@
 </section> -->
 
     <!-- FOOTER -->
-    <section class="footer">
-      <h4>About Us</h4>
-      <p>
-        AgroSolar helps farmers preserve crops using solar-powered technology.
-      </p>
-
-      <div class="icons">
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-linkedin-in"></i>
+    <section data-nav="dark" class="footer">
+      <svg class="footer-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:60px" aria-hidden="true" focusable="false"><path d="M0,0 H1440 V30 C1200,70 960,70 720,40 C480,10 240,10 0,45 Z" fill="#8DBF3F"/></svg>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-brand-link"><span class="logo-circle"><img src="images/AgroSolar_logo.png" alt="AgroSolar ASTIC logo"></span><span class="wordmark">ASTIC</span></a>
+            <p>AgroSolar helps farmers preserve crops using solar-powered technology.</p>
+          </div>
+          <nav class="footer-links" aria-label="Quick links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pitch.html">Pitch</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="footer-social">
+            <h4>Follow Us</h4>
+            <div class="social-row">
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>Made with &hearts; by AgroSolar</p>
+        </div>
       </div>
     </section>
 
@@ -150,12 +185,14 @@
       var navLinks = document.getElementById("navLinks");
 
       function showMenu() {
-        navLinks.style.right = "0";
+        navLinks.classList.add("open");
       }
 
       function hideMenu() {
-        navLinks.style.right = "-200px";
+        navLinks.classList.remove("open");
       }
     </script>
-  </body>
+  <script src="script.js"></script>
+
+</body>
 </html>

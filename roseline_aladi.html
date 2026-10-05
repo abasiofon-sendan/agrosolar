@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roseline Aladi</title>
 <link rel="stylesheet" href="styles.css">
 
@@ -8,15 +10,16 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+
 </head>
 
-<body>
+<body class="member-page">
 
-<section class="sub-header john-header">
+<header class="glass-header">
+<a href="index.html" class="brand"><span class="logo-circle"><img src="images/AgroSolar_logo.png" alt="AgroSolar ASTIC Logo"></span><span class="wordmark">ASTIC</span></a>
 
-<nav>
-<a href="index.html"><img src="images/logo.png" alt="logo"></a>
-
+<nav class="glass-nav">
 <div class="nav-links" id="navLinks">
 <i class="fa fa-times" onclick="hideMenu()"></i>
 
@@ -31,44 +34,75 @@
 
 <i class="fa fa-bars" onclick="showMenu()"></i>
 </nav>
+</header>
 
-<h1>My Profile</h1>
 
-</section>
 
 
 <!-- PROFILE CONTENT -->
-<section class="profile-section">
+<section data-nav="dark" class="member">
 
-  <div class="profile-container">
+  <div class="member-wrap">
 
-    <!-- IMAGE -->
-    <img src="images/Roseline_Aladi.jpeg" alt="Rose" class="profile-img">
+    <div class="member-photo"><img src="images/Roseline_Aladi.jpeg" alt="Portrait of Emmanuel Roseline Aladi" loading="lazy" decoding="async" width="600" height="600"></div>
 
-    <!-- TEXT -->
-    <div class="profile-text">
-       <h2>Emmanuel Roseline Aladi</h2>
+    <div class="member-body">
+      <p class="member-kicker">Agrosolar Team</p>
+      <h1>Emmanuel Roseline Aladi</h1>
+      <p class="member-role">Student, Benue State Polytechnic</p>
+      <p class="member-qual">Microbiologist</p>
 
-    <p>Emmanuel Roseline Aladi was born on 11th November 2002 in Osun State, Nigeria. She is a student of Science Laboratory Technology, specializing in Microbiology, at Benue State Polytechnic, Ugbokolo. Her academic training has strengthened her interest in food preservation, microbial safety, and sustainable solutions to post-harvest losses.
-     As a participant in the AgroSolar TechnoPreneurship and Innovation Centre (ASTIC) project, she is a member of the team developing Solar Harvest, a solar-powered refrigeration system  designed to preserve perishable agricultural products. Through the Solar Harvest project, she seeks to apply her knowledge of Microbiology to promote safe food preservation, reduce food spoilage and post-harvest losses, and contribute to sustainable agricultural development and improved food security. She is committed to scientific innovation, continuous learning, teamwork, and the practical application of scientific knowledge to real-world challenges.
-    </p>
+      <hr class="member-rule">
+
+      <div class="member-bio">
+      <p>Emmanuel Roseline Aladi was born on 11th November 2002 in Osun State, Nigeria. She is a student of Science Laboratory Technology, specializing in Microbiology, at Benue State Polytechnic, Ugbokolo. Her academic training has strengthened her interest in food preservation, microbial safety, and sustainable solutions to post-harvest losses.</p>
+      <p>As a participant in the AgroSolar TechnoPreneurship and Innovation Centre (ASTIC) project, she is a member of the team developing Solar Harvest, a solar-powered refrigeration system  designed to preserve perishable agricultural products. Through the Solar Harvest project, she seeks to apply her knowledge of Microbiology to promote safe food preservation, reduce food spoilage and post-harvest losses, and contribute to sustainable agricultural development and improved food security. She is committed to scientific innovation, continuous learning, teamwork, and the practical application of scientific knowledge to real-world challenges.</p>
+      </div>
+
+      <nav class="member-nav" aria-label="Team member">
+        <a class="member-nav-link member-nav-prev" href="catherine_Eleojo.html"><span aria-hidden="true">&larr;</span> Previous</a>
+        <a class="member-nav-link" href="team.html">All Team</a>
+        <a class="member-nav-link member-nav-next" href="catherine_Eleojo.html">Next <span aria-hidden="true">&rarr;</span></a>
+      </nav>
     </div>
 
   </div>
-<a href="team.html" class="team-btn">← Back to Team</a>
 </section>
 
 
 <!-- FOOTER -->
-<section class="footer">
-<h4>About Us</h4>
+<section data-nav="dark" class="footer">
+<svg class="footer-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:60px" aria-hidden="true" focusable="false"><path d="M0,0 H1440 V30 C1200,70 960,70 720,40 C480,10 240,10 0,45 Z" fill="#8DBF3F"/></svg>
+<div class="footer-inner">
+<div class="footer-grid">
+<div class="footer-brand">
+<a href="index.html" class="footer-brand-link"><span class="logo-circle"><img src="images/AgroSolar_logo.png" alt="AgroSolar ASTIC logo"></span><span class="wordmark">ASTIC</span></a>
 <p>AgroSolar helps farmers preserve crops using solar-powered technology.</p>
-
-<div class="icons">
-<i class="fa-brands fa-facebook-f"></i>
-<i class="fa-brands fa-twitter"></i>
-<i class="fa-brands fa-instagram"></i>
-<i class="fa-brands fa-linkedin-in"></i>
+</div>
+<nav class="footer-links" aria-label="Quick links">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="pitch.html">Pitch</a></li>
+<li><a href="blog.html">Blog</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+<div class="footer-social">
+<h4>Follow Us</h4>
+<div class="social-row">
+<a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+<a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-twitter"></i></a>
+<a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>Made with &hearts; by AgroSolar</p>
+</div>
 </div>
 </section>
 
@@ -77,12 +111,14 @@
 var navLinks = document.getElementById("navLinks");
 
 function showMenu(){
-navLinks.style.right = "0";
+navLinks.classList.add("open");
 }
 
 function hideMenu(){
-navLinks.style.right = "-200px";
+navLinks.classList.remove("open");
 }
 </script>
+<script src="script.js"></script>
+
 </body>
 </html>

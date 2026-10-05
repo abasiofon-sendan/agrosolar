@@ -26,16 +26,54 @@ links.forEach(link => {
 var navLinks = document.getElementById("navLinks");
 
 function showMenu() {
-    if (navLinks) {
-        navLinks.style.right = "0";
+    var panel = document.getElementById("navLinks");
+    if (panel) {
+        panel.classList.add("open");
     }
 }
 
 function hideMenu() {
-    if (navLinks) {
-        navLinks.style.right = "-200px";
+    var panel = document.getElementById("navLinks");
+    if (panel) {
+        panel.classList.remove("open");
     }
 }
+
+/* =====================================================
+   HEADER STATE BY SECTION (ALL PAGES)
+   Switches the floating header between its dark-glass
+   and light-cream states based on the section currently
+   sitting under the header. No scroll listeners.
+   ===================================================== */
+
+(function () {
+    var header = document.querySelector("header.glass-header");
+    if (!header || !("IntersectionObserver" in window)) {
+        return;
+    }
+
+    var watched = document.querySelectorAll("section[data-nav]");
+    if (!watched.length) {
+        return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                header.classList.toggle(
+                    "nav-light",
+                    entry.target.getAttribute("data-nav") === "light"
+                );
+            }
+        });
+    }, {
+        rootMargin: "-40px 0px -85% 0px"
+    });
+
+    watched.forEach(function (section) {
+        observer.observe(section);
+    });
+})();
 
 
 /* =====================================================
