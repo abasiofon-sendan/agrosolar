@@ -16,9 +16,9 @@ html, body {
 	scroll-behavior: smooth;
 }
 
-/* UNIFIED SECTION SPACING — headers, CTA banner, footer, course and
-   team sections excluded; those sections set their own padding explicitly */
-section:not(.header):not(.sub-header):not(.blog-header):not(.pitch-header-nav):not(.join-cta):not(.footer):not(.course):not(.team-section) {
+/* UNIFIED SECTION SPACING — headers, CTA banner, footer, course, team
+   and team-intro sections excluded; they set their own padding explicitly */
+section:not(.header):not(.sub-header):not(.blog-header):not(.pitch-header-nav):not(.join-cta):not(.footer):not(.course):not(.team-section):not(.team-intro) {
 	padding: 70px 0;
 }
 
@@ -609,11 +609,11 @@ nav .fa {
 	padding:30px;
 }
 
-/* MOBILE GLOBAL FIX — headers, CTA banner, footer, course and team
-   sections keep their own padding, never the generic section padding */
+/* MOBILE GLOBAL FIX — headers, CTA banner, footer, course, team and
+   team-intro sections keep their own padding, never the generic padding */
 @media(max-width:700px){
 
-	section:not(.header):not(.sub-header):not(.blog-header):not(.pitch-header-nav):not(.join-cta):not(.footer):not(.course):not(.team-section) {
+	section:not(.header):not(.sub-header):not(.blog-header):not(.pitch-header-nav):not(.join-cta):not(.footer):not(.course):not(.team-section):not(.team-intro) {
 		padding: 50px 15px;
 	}
 
@@ -5029,6 +5029,84 @@ section.team-section {
 
 section.sub-header.about-header h1 {
     color: #0B3D2E;
+}
+
+/* =====================================================
+   TEAM INTRO SPLIT HEADER (about page)
+   Cream block directly above the team grid.
+   ===================================================== */
+.team-intro {
+    background: #F5F5EF;
+}
+
+.team-intro-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 128px 24px 48px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.team-intro-grid h2 {
+    margin: 0;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #0B3D2E;
+}
+
+.team-intro-text p {
+    margin: 0;
+    max-width: 60ch;
+    text-align: left;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.65;
+    color: #5B6B65;
+}
+
+.team-intro-text .team-label {
+    display: block;
+    margin-top: 16px;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: rgba(11,61,46,0.7);
+}
+
+/* Pull the grid up: no band between header block and photos.
+   The adjacent grid heading is hidden as the intro heading replaces it. */
+.team-intro + section.team-section {
+    margin-top: 0;
+    padding-top: 32px;
+}
+
+.team-intro + section.team-section > h2:first-child {
+    display: none;
+}
+
+/* ---------- BELOW 900PX: single column ---------- */
+@media (max-width: 900px) {
+    .team-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-top: 112px;
+    }
+
+    .team-intro-grid h2 {
+        font-size: 36px;
+    }
+
+    .team-intro-text p {
+        font-size: 16px;
+    }
 }
 
 /* =====================================================
