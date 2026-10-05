@@ -34,7 +34,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
 <div class="nav-links" id="navLinks">
 
-<i class="fa fa-times" onclick="hideMenu()"></i>
 
 <ul>
 
@@ -70,7 +69,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 
 </div>
 
-<i class="fa fa-bars" onclick="showMenu()"></i>
+<button type="button" class="menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"><i class="fa fa-bars" aria-hidden="true"></i></button>
 
 </nav>
 
@@ -661,25 +660,25 @@ CONTACT US
      MOBILE NAVIGATION
      ===================================================== -->
 
-<script>
-
-var navLinks = document.getElementById("navLinks");
-
-function showMenu(){
-
-    navLinks.classList.add("open");
-
-}
-
-function hideMenu(){
-
-    navLinks.classList.remove("open");
-
-}
-
-</script>
 
 <script src="script.js"></script>
+
+<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+<nav id="mobile-menu" aria-label="Main menu">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-brand"><span class="logo-circle"><img src="images/AgroSolar_logo.png" alt="AgroSolar ASTIC Logo"></span><span class="drawer-wordmark">ASTIC</span></a>
+    <button type="button" class="drawer-close" aria-label="Close menu"><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+  <ul class="drawer-links">
+    <li><a class="drawer-link" href="index.html">HOME</a></li>
+    <li><a class="drawer-link" href="about.html">ABOUT</a></li>
+    <li><a class="drawer-link" href="services.html">SERVICES</a></li>
+    <li><a class="drawer-link" href="activities.html">ACTIVITIES</a></li>
+    <li><a class="drawer-link" href="pitch.html">PITCH</a></li>
+    <li><a class="drawer-link" href="blog.html">BLOG</a></li>
+    <li><a class="drawer-link" href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
 
 </body>
 

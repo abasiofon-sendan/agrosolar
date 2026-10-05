@@ -19,7 +19,7 @@ html, body {
 
 /* UNIFIED SECTION SPACING — headers, CTA banner, footer, course, team
    and team-intro sections excluded; they set their own padding explicitly */
-section:not(.header):not(.sub-header):not(.blog-header):not(.pitch-header-nav):not(.join-cta):not(.footer):not(.course):not(.team-section):not(.team-intro):not(.services-hero):not(.services-list) {
+section:not(.header):not(.sub-header):not(.blog-header):not(.pitch-header-nav):not(.join-cta):not(.footer):not(.course):not(.team-section):not(.team-intro):not(.services-hero):not(.services-list):not(.gallery) {
 	padding: 70px 0;
 }
 
@@ -614,7 +614,7 @@ nav .fa {
    team-intro sections keep their own padding, never the generic padding */
 @media(max-width:700px){
 
-	section:not(.header):not(.sub-header):not(.blog-header):not(.pitch-header-nav):not(.join-cta):not(.footer):not(.course):not(.team-section):not(.team-intro):not(.services-hero):not(.services-list) {
+	section:not(.header):not(.sub-header):not(.blog-header):not(.pitch-header-nav):not(.join-cta):not(.footer):not(.course):not(.team-section):not(.team-intro):not(.services-hero):not(.services-list):not(.gallery) {
 		padding: 50px 15px;
 	}
 
@@ -5497,5 +5497,476 @@ body.member-page {
     .svc-card {
         position: static;
         animation: none;
+    }
+}
+
+/* ============ GALLERY (landing page mosaic + lightbox) ============ */
+.gallery {
+    background: #fff;
+    padding: 96px 24px;
+    scroll-margin-top: calc(var(--header-space) + 16px);
+}
+
+.gallery-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 40px;
+}
+
+.gal-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.gal-left,
+.gal-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+.gal-smalls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.gal-tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #e8e8e8;
+    cursor: pointer;
+}
+
+.gal-a { aspect-ratio: 4 / 5; }
+.gal-small { aspect-ratio: 4 / 3; }
+.gal-wide { aspect-ratio: 16 / 7; }
+
+.gal-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 250ms ease;
+}
+
+.gal-pos-25 img { object-position: center 25%; }
+.gal-pos-30 img { object-position: center 30%; }
+.gal-pos-40 img { object-position: center 40%; }
+
+.gal-tile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 53, 47, 0.25);
+    opacity: 0;
+    transition: opacity 250ms ease;
+    pointer-events: none;
+}
+
+@media (hover: hover) {
+    .gal-tile:hover img {
+        transform: scale(1.04);
+    }
+    .gal-tile:hover::after {
+        opacity: 1;
+    }
+}
+
+.gal-tile:focus-visible {
+    outline: 2px solid #8DBF3F;
+    outline-offset: 3px;
+}
+
+.gal-tile:focus-visible::after {
+    opacity: 1;
+}
+
+/* ---------- TABLET + MOBILE: flatten groups into one grid ---------- */
+@media (max-width: 1023px) {
+    .gal-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    .gal-left,
+    .gal-right,
+    .gal-smalls {
+        display: contents;
+    }
+    .gal-tile {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media (max-width: 639px) {
+    .gallery {
+        padding: 64px 24px;
+    }
+    .gal-grid {
+        gap: 8px;
+    }
+    .gal-small {
+        aspect-ratio: 1 / 1;
+    }
+    .gal-a,
+    .gal-wide {
+        grid-column: span 2;
+    }
+}
+
+/* ---------- LIGHTBOX ---------- */
+.gal-dialog {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+.gal-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.gal-dialog-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gal-figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 94vw;
+}
+
+.gal-view {
+    max-width: 90vw;
+    max-height: 78vh;
+    object-fit: contain;
+    display: block;
+}
+
+.gal-video {
+    max-width: 90vw;
+    max-height: 78vh;
+}
+
+.gal-view[hidden],
+.gal-video[hidden] {
+    display: none;
+}
+
+.gal-cap {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 640px;
+    margin-top: 16px;
+}
+
+.gal-count {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    margin: 0;
+}
+
+.gal-btn {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 200ms ease;
+    z-index: 2;
+}
+
+.gal-btn:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.gal-btn:focus-visible {
+    outline: 2px solid #8DBF3F;
+    outline-offset: 3px;
+}
+
+.gal-close { top: 20px; right: 20px; }
+.gal-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+.gal-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+body.gal-lock {
+    overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gal-tile img,
+    .gal-tile::after,
+    .gal-btn {
+        transition: none;
+    }
+    .gal-tile:hover img {
+        transform: none;
+    }
+}
+
+/* ============ MOBILE DRAWER NAVIGATION (<=768px) ============
+   The drawer + backdrop live as direct children of <body>,
+   siblings of the header (never inside it: the header's
+   backdrop-filter would trap a fixed panel inside its box).
+   Desktop header is untouched: everything below only applies
+   at max-width 768px. */
+.menu-btn {
+    display: none;
+}
+
+#mobile-menu,
+.menu-backdrop {
+    display: none;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    /* Retire the old in-header dropdown panel entirely. */
+    .glass-header .nav-links {
+        display: none;
+    }
+
+    /* Hamburger opener (lives in the header pill). */
+    .menu-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        color: var(--nav-text);
+    }
+
+    .menu-btn .fa-bars {
+        font-size: 22px;
+        line-height: 1;
+    }
+
+    .menu-btn:focus-visible {
+        outline: 2px solid var(--nav-hover);
+        outline-offset: 2px;
+    }
+
+    /* Backdrop scrim. */
+    .menu-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 250ms ease, visibility 0s linear 250ms;
+    }
+
+    body.menu-open .menu-backdrop {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 250ms ease;
+    }
+
+    /* Drawer panel: always dark, hardcoded (never inherits nav vars). */
+    #mobile-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(88vw, 400px);
+        height: 100vh;
+        height: 100dvh;
+        z-index: 1000;
+        overflow-y: auto;
+        background: #06352F;
+        box-shadow: -16px 0 48px rgba(0, 0, 0, 0.35);
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 300ms cubic-bezier(0.22, 0.8, 0.3, 1),
+            visibility 0s linear 300ms;
+    }
+
+    body.menu-open #mobile-menu {
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform 300ms cubic-bezier(0.22, 0.8, 0.3, 1),
+            visibility 0s;
+    }
+
+    .drawer-head {
+        height: 76px;
+        padding: 0 20px;
+        background: #04281F;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .drawer-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+
+    .drawer-brand .logo-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        line-height: 0;
+    }
+
+    .drawer-brand .logo-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 4px;
+        display: block;
+        background: #ffffff;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+    }
+
+    .drawer-wordmark {
+        font-weight: 800;
+        font-size: 20px;
+        letter-spacing: 0.12em;
+        white-space: nowrap;
+        background: linear-gradient(90deg, #FF9F1C 0%, #7ED957 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .drawer-close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 28px;
+        line-height: 1;
+    }
+
+    .drawer-close:focus-visible {
+        outline: 2px solid #8DBF3F;
+        outline-offset: 2px;
+    }
+
+    .drawer-links {
+        list-style: none;
+        margin: 0;
+        padding: 16px 24px 32px;
+    }
+
+    .drawer-links li + li {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .drawer-link {
+        display: block;
+        padding: 16px 0 16px 12px;
+        min-height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #FFFFFF;
+        text-decoration: none;
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    body.menu-open .drawer-link {
+        opacity: 1;
+        transform: none;
+        transition: opacity 250ms ease, transform 250ms ease, color 150ms ease;
+        transition-delay: calc(var(--j, 0) * 40ms);
+    }
+
+    .drawer-link:hover,
+    .drawer-link:active {
+        color: #8DBF3F;
+    }
+
+    .drawer-link:focus-visible {
+        outline: 2px solid #8DBF3F;
+        outline-offset: 2px;
+        color: #8DBF3F;
+    }
+
+    .drawer-link.current {
+        color: #8DBF3F;
+        box-shadow: inset 3px 0 0 #8DBF3F;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #mobile-menu,
+    .menu-backdrop,
+    .drawer-link {
+        transition: none;
+    }
+
+    .drawer-link {
+        opacity: 1;
+        transform: none;
     }
 }

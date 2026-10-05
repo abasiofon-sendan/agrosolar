@@ -23,21 +23,136 @@ links.forEach(link => {
    MOBILE NAVIGATION
    ===================================================== */
 
-var navLinks = document.getElementById("navLinks");
+/* =====================================================
+   MOBILE DRAWER NAVIGATION (ALL PAGES)
+   Full-height slide-in drawer (<nav id="mobile-menu">),
+   a direct child of <body> and sibling of the header.
+   No scroll listeners.
+   ===================================================== */
 
-function showMenu() {
-    var panel = document.getElementById("navLinks");
-    if (panel) {
-        panel.classList.add("open");
+/* The drawer markup sits after the scripts at the end of <body>,
+   so initialization waits for parsing to finish. */
+document.addEventListener("DOMContentLoaded", function () {
+    var drawer = document.getElementById("mobile-menu");
+    var backdrop = document.getElementById("menuBackdrop");
+    var burger = document.querySelector(".menu-btn");
+    if (!drawer || !backdrop || !burger) {
+        return;
     }
-}
+    var closeBtn = drawer.querySelector(".drawer-close");
+    if (!closeBtn) {
+        return;
+    }
 
-function hideMenu() {
-    var panel = document.getElementById("navLinks");
-    if (panel) {
-        panel.classList.remove("open");
+    var links = Array.prototype.slice.call(
+        drawer.querySelectorAll(".drawer-link")
+    );
+    var mq = window.matchMedia("(max-width: 768px)");
+    var opener = null;
+
+    /* Same links as the header; mark the current page. */
+    var current =
+        window.location.pathname.split("/").pop() || "index.html";
+    links.forEach(function (link, index) {
+        link.style.setProperty("--j", index);
+        if (link.getAttribute("href") === current) {
+            link.classList.add("current");
+            link.setAttribute("aria-current", "page");
+        }
+    });
+
+    function pageSiblings() {
+        return Array.prototype.slice.call(
+            document.querySelectorAll(
+                "body > :not(#mobile-menu):not(.menu-backdrop):not(script)"
+            )
+        );
     }
-}
+
+    function openDrawer() {
+        if (document.body.classList.contains("menu-open") || !mq.matches) {
+            return;
+        }
+        opener = document.activeElement;
+        /* Lock scroll without a layout jump. */
+        var gutter =
+            window.innerWidth - document.documentElement.clientWidth;
+        if (gutter > 0) {
+            document.body.style.paddingRight = gutter + "px";
+        }
+        document.body.classList.add("menu-open");
+        burger.setAttribute("aria-expanded", "true");
+        pageSiblings().forEach(function (el) {
+            el.setAttribute("inert", "");
+        });
+        closeBtn.focus();
+    }
+
+    function closeDrawer() {
+        if (!document.body.classList.contains("menu-open")) {
+            return;
+        }
+        document.body.classList.remove("menu-open");
+        document.body.style.paddingRight = "";
+        burger.setAttribute("aria-expanded", "false");
+        pageSiblings().forEach(function (el) {
+            el.removeAttribute("inert");
+        });
+        if (opener && document.contains(opener)) {
+            opener.focus();
+        } else {
+            burger.focus();
+        }
+        opener = null;
+    }
+
+    burger.addEventListener("click", openDrawer);
+    closeBtn.addEventListener("click", closeDrawer);
+    backdrop.addEventListener("click", closeDrawer);
+    /* Any link tap closes first; the default jump follows. */
+    links.forEach(function (link) {
+        link.addEventListener("click", closeDrawer);
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (!document.body.classList.contains("menu-open")) {
+            return;
+        }
+        if (event.key === "Escape") {
+            event.preventDefault();
+            closeDrawer();
+        } else if (event.key === "Tab") {
+            var focusable = Array.prototype.slice
+                .call(drawer.querySelectorAll("a[href], button:not([disabled])"))
+                .filter(function (el) {
+                    return el.offsetParent !== null;
+                });
+            if (focusable.length === 0) {
+                return;
+            }
+            var first = focusable[0];
+            var last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
+
+    function closeWhenWide(event) {
+        if (!event.matches) {
+            closeDrawer();
+        }
+    }
+    if (typeof mq.addEventListener === "function") {
+        mq.addEventListener("change", closeWhenWide);
+    } else if (typeof mq.addListener === "function") {
+        mq.addListener(closeWhenWide);
+    }
+});
 
 /* =====================================================
    HEADER STATE BY SECTION (ALL PAGES)
@@ -406,5 +521,168 @@ document.addEventListener("DOMContentLoaded", function() {
         createThumbnails();
 
     }
+
+});
+
+/* =====================================================
+   GALLERY LIGHTBOX (index.html only)
+   Native <dialog>; photo tiles use data-full, video
+   tiles (data-video) open an embedded player instead.
+   ===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var section = document.getElementById("gallery");
+    if (!section) {
+        return;
+    }
+
+    var tiles = Array.prototype.slice.call(
+        section.querySelectorAll(".gal-tile")
+    );
+    var dialog = document.getElementById("galDialog");
+    if (!dialog || tiles.length === 0) {
+        return;
+    }
+
+    /* No native <dialog>: fall back to opening the full image. */
+    if (typeof dialog.showModal !== "function") {
+        tiles.forEach(function (tile) {
+            tile.addEventListener("click", function () {
+                var img = tile.querySelector("img");
+                window.open(tile.getAttribute("data-full") ||
+                    (img && img.getAttribute("src")), "_blank");
+            });
+        });
+        return;
+    }
+
+    var viewImg = document.getElementById("galView");
+    var viewVideo = document.getElementById("galVideo");
+    var caption = document.getElementById("galCap");
+    var counter = document.getElementById("galCount");
+    var closeBtn = document.getElementById("galClose");
+    var prevBtn = document.getElementById("galPrev");
+    var nextBtn = document.getElementById("galNext");
+    var inner = document.getElementById("galDialogInner");
+
+    var current = 0;
+    var opener = null;
+
+    function stopVideo() {
+        if (!viewVideo) {
+            return;
+        }
+        viewVideo.pause();
+        viewVideo.removeAttribute("src");
+        viewVideo.hidden = true;
+    }
+
+    function render() {
+        var tile = tiles[current];
+        var img = tile.querySelector("img");
+        var alt = (img && img.getAttribute("alt")) || "";
+        var videoSrc = tile.getAttribute("data-video");
+
+        stopVideo();
+
+        if (videoSrc) {
+            viewImg.hidden = true;
+            viewVideo.hidden = false;
+            viewVideo.setAttribute("poster",
+                (img && img.currentSrc) || (img && img.getAttribute("src")) || "");
+            viewVideo.setAttribute("src", videoSrc);
+        } else {
+            viewImg.hidden = false;
+            viewImg.setAttribute("src", tile.getAttribute("data-full") ||
+                (img && img.getAttribute("src")));
+            viewImg.setAttribute("alt", alt);
+        }
+
+        caption.textContent = alt;
+        counter.textContent = (current + 1) + " / " + tiles.length;
+        prevBtn.setAttribute("aria-label",
+            "Previous image (" + (((current - 1 + tiles.length) % tiles.length) + 1) +
+            " of " + tiles.length + ")");
+        nextBtn.setAttribute("aria-label",
+            "Next image (" + (((current + 1) % tiles.length) + 1) +
+            " of " + tiles.length + ")");
+    }
+
+    function openAt(index, tile) {
+        current = (index + tiles.length) % tiles.length;
+        opener = tile || null;
+        render();
+        if (!dialog.open) {
+            dialog.showModal();
+        }
+        document.body.classList.add("gal-lock");
+        closeBtn.focus();
+    }
+
+    function closeViewer() {
+        if (dialog.open) {
+            dialog.close();
+        }
+    }
+
+    function step(delta) {
+        current = (current + delta + tiles.length) % tiles.length;
+        render();
+    }
+
+    tiles.forEach(function (tile, index) {
+        tile.addEventListener("click", function () {
+            openAt(index, tile);
+        });
+    });
+
+    closeBtn.addEventListener("click", closeViewer);
+    prevBtn.addEventListener("click", function () { step(-1); });
+    nextBtn.addEventListener("click", function () { step(1); });
+
+    /* Backdrop click (outside the figure and buttons) closes. */
+    dialog.addEventListener("click", function (event) {
+        if (event.target === dialog || event.target === inner) {
+            closeViewer();
+        }
+    });
+
+    dialog.addEventListener("close", function () {
+        stopVideo();
+        document.body.classList.remove("gal-lock");
+        if (opener && document.contains(opener)) {
+            opener.focus();
+        }
+        opener = null;
+    });
+
+    dialog.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            step(-1);
+        } else if (event.key === "ArrowRight") {
+            event.preventDefault();
+            step(1);
+        }
+    });
+
+    /* Touch swipe left/right to navigate. */
+    var touchX = null;
+    inner.addEventListener("touchstart", function (event) {
+        if (event.touches.length === 1) {
+            touchX = event.touches[0].clientX;
+        }
+    }, { passive: true });
+    inner.addEventListener("touchend", function (event) {
+        if (touchX === null) {
+            return;
+        }
+        var dx = event.changedTouches[0].clientX - touchX;
+        touchX = null;
+        if (Math.abs(dx) > 40) {
+            step(dx < 0 ? 1 : -1);
+        }
+    }, { passive: true });
 
 });

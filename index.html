@@ -24,7 +24,6 @@ script-src 'self' 'unsafe-inline';
 
 <nav class="glass-nav">
 <div class="nav-links" id="navLinks">
-<i class="fa fa-times" onclick="hideMenu()"></i>
 
 <ul>
 <li><a href="index.html">HOME</a></li>
@@ -37,7 +36,7 @@ script-src 'self' 'unsafe-inline';
 </ul>
 </div>
 
-<i class="fa fa-bars" onclick="showMenu()"></i>
+<button type="button" class="menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu"><i class="fa fa-bars" aria-hidden="true"></i></button>
 </nav>
 </header>
 
@@ -1284,6 +1283,54 @@ Supported by the British Council and global partners, AgroSolar provides trainin
 
 
 
+<!-- ================= GALLERY ================= -->
+<section data-nav="light" class="gallery" id="gallery" aria-labelledby="gallery-title">
+  <div class="gallery-inner">
+    <h2 class="gallery-title" id="gallery-title">Gallery</h2>
+
+    <div class="gal-grid">
+      <div class="gal-left">
+        <button type="button" class="gal-tile gal-a gal-pos-40" data-full="Gallery/Site_Touring_Uniuyo1-1400.webp">
+          <img src="Gallery/Site_Touring_Uniuyo1.jpeg" srcset="Gallery/Site_Touring_Uniuyo1-800.webp 800w, Gallery/Site_Touring_Uniuyo1-1400.webp 1400w" sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 470px" width="2048" height="1536" loading="lazy" decoding="async" alt="AgroSolar team members in branded T-shirts posing on the steps of a University of Uyo building during a site tour">
+        </button>
+        <div class="gal-smalls">
+          <button type="button" class="gal-tile gal-small gal-pos-30" data-full="Gallery/PIX3-1400.webp">
+            <img src="Gallery/PIX3.jpeg" srcset="Gallery/PIX3-800.webp 800w, Gallery/PIX3-1400.webp 1400w" sizes="(max-width: 639px) 45vw, (max-width: 1023px) 46vw, 230px" width="2560" height="1706" loading="lazy" decoding="async" alt="AgroSolar team gathered around a laboratory bench with glassware in front of an ASSET conference banner">
+          </button>
+          <button type="button" class="gal-tile gal-small gal-pos-25" data-full="Gallery/Agro_Solar_Site-1400.webp">
+            <img src="Gallery/Agro_Solar_Site.jpeg" srcset="Gallery/Agro_Solar_Site-800.webp 800w, Gallery/Agro_Solar_Site-1400.webp 1400w" sizes="(max-width: 639px) 45vw, (max-width: 1023px) 46vw, 230px" width="1600" height="1200" loading="lazy" decoding="async" alt="Seven AgroSolar team members standing beside an AgroSolar pitch presentation banner at a project site">
+          </button>
+        </div>
+      </div>
+      <div class="gal-right">
+        <button type="button" class="gal-tile gal-wide gal-pos-50" data-full="Gallery/PIX1-1400.webp">
+          <img src="Gallery/PIX1.jpeg" srcset="Gallery/PIX1-800.webp 800w, Gallery/PIX1-1400.webp 1400w" sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 660px" width="2469" height="1024" loading="lazy" decoding="async" alt="AgroSolar team group photograph in front of the ASSET conference banner on adaptive and sustainable science, engineering and technology">
+        </button>
+        <button type="button" class="gal-tile gal-wide gal-pos-25" data-full="Gallery/Ghana_Pix2-1400.webp">
+          <img src="Gallery/Ghana_Pix2.jpeg" srcset="Gallery/Ghana_Pix2-800.webp 800w, Gallery/Ghana_Pix2-1400.webp 1400w" sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 660px" width="1600" height="900" loading="lazy" decoding="async" alt="AgroSolar team on stage with partners at a British Council event in Ghana">
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <dialog class="gal-dialog" id="galDialog" aria-label="Gallery image viewer">
+    <div class="gal-dialog-inner" id="galDialogInner">
+      <button type="button" class="gal-btn gal-close" id="galClose" aria-label="Close viewer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <button type="button" class="gal-btn gal-prev" id="galPrev" aria-label="Previous image"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+      <figure class="gal-figure">
+        <img class="gal-view" id="galView" alt="">
+        <video class="gal-video" id="galVideo" controls playsinline hidden></video>
+        <figcaption class="gal-cap" id="galCap"></figcaption>
+      </figure>
+      <button type="button" class="gal-btn gal-next" id="galNext" aria-label="Next image"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+      <p class="gal-count" id="galCount" aria-live="polite"></p>
+    </div>
+  </dialog>
+</section>
+
+
+
+
 <!-- JOIN CTA -->
 <section data-nav="dark" class="join-cta">
   <picture class="join-cta-bg" aria-hidden="true">
@@ -1335,15 +1382,8 @@ Supported by the British Council and global partners, AgroSolar provides trainin
 
 <!-- JS -->
 <script>
-var navLinks = document.getElementById("navLinks");
 
-function showMenu(){
-navLinks.classList.add("open");
-}
 
-function hideMenu(){
-navLinks.classList.remove("open");
-}
 
 /* ===============================
    PARTNERS MARQUEE CONTROLS
@@ -1401,6 +1441,22 @@ navLinks.classList.remove("open");
 
 
 <script src="script.js"></script>
+
+<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+<nav id="mobile-menu" aria-label="Main menu">
+  <div class="drawer-head">
+    <a href="index.html" class="drawer-brand"><span class="logo-circle"><img src="images/AgroSolar_logo.png" alt="AgroSolar ASTIC Logo"></span><span class="drawer-wordmark">ASTIC</span></a>
+    <button type="button" class="drawer-close" aria-label="Close menu"><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+  <ul class="drawer-links">
+    <li><a class="drawer-link" href="index.html">HOME</a></li>
+    <li><a class="drawer-link" href="about.html">ABOUT</a></li>
+    <li><a class="drawer-link" href="services.html">SERVICES</a></li>
+    <li><a class="drawer-link" href="pitch.html">PITCH</a></li>
+    <li><a class="drawer-link" href="blog.html">BLOG</a></li>
+    <li><a class="drawer-link" href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
 
 </body>
 </html>
