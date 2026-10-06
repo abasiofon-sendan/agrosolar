@@ -1180,13 +1180,23 @@ nav {
   }
 }
 /* ===== BLOG HEADER FIX ===== */
+/* BLOG HERO — editorial left-aligned hero over a single dark photo */
 .blog-header{
   width:100%;
-  height:50vh;
-  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  min-height:clamp(380px, 52vh, 520px);
+  display:flex;
+  align-items:center;
+  padding-top:calc(var(--header-space) + 40px);
+  padding-bottom:56px;
+  background:linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.35) 100%),
   url("images/Inside_Solar_Plant.png") center/cover no-repeat;
   position:relative;
   color:#fff;
+}
+
+/* Pin the floating pill to the same top offset as the other pages */
+.blog-header .glass-header{
+  top:16px;
 }
 
 /* NAVBAR — in-flow so hero content is never overlapped; same gutter as other headers */
@@ -1216,15 +1226,6 @@ nav {
   color:#fff;
   text-decoration:none;
   font-weight:600;
-}
-
-/* HEADER TEXT */
-.blog-header h1{
-  position:absolute;
-  bottom:40px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:32px;
 }
 
 /* BLOG CONTENT */
@@ -1327,54 +1328,7 @@ nav {
   .nav-links ul li{
     display:block;
   }
-
-  .blog-header h1{
-    font-size:22px;
-    text-align:center;
-    padding:0 10px;
-  }
 }
-/* SLIDER CONTAINER */
-.slider{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-/* EACH IMAGE */
-.slider span{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  animation: slideShow 15s infinite;
-}
-
-/* DELAY EACH IMAGE */
-.slider span:nth-child(1){ animation-delay: 0s; }
-.slider span:nth-child(2){ animation-delay: 5s; }
-.slider span:nth-child(3){ animation-delay: 10s; }
-
-/* ANIMATION */
-@keyframes slideShow{
-  0%{opacity:0;}
-  10%{opacity:1;}
-  30%{opacity:1;}
-  40%{opacity:0;}
-  100%{opacity:0;}
-}
-
-/* KEEP CONTENT ABOVE SLIDER */
-.blog-header nav,
-.blog-header h1{
-  position: relative;
-  z-index: 2;
-}
-
 /* ================= PROFILE PAGE FIX ================= */
 
 /* HEADER BACKGROUND FOR PROFILE */
@@ -2551,108 +2505,12 @@ AGROSOLAR BLOG PAGE
 BLOG HEADER
 ===================================================== */
 
-.blog-header {
-min-height: 55vh;
-position: relative;
-overflow: hidden;
-color: #fff;
-}
-
 .blog-header nav {
 position: relative;
 z-index: 10;
 }
 
-.blog-header .slider {
-position: absolute;
-inset: 0;
-z-index: 1;
-}
-
-.blog-header .slider span {
-position: absolute;
-inset: 0;
-background-position: center;
-background-size: cover;
-opacity: 0;
-animation: blogSlider 15s infinite;
-}
-
-.blog-header .slider span:nth-child(1) {
-animation-delay: 0s;
-}
-
-.blog-header .slider span:nth-child(2) {
-animation-delay: 5s;
-}
-
-.blog-header .slider span:nth-child(3) {
-animation-delay: 10s;
-}
-
-.blog-header .slider::after {
-content: "";
-position: absolute;
-inset: 0;
-background: rgba(0, 0, 0, 0.52);
-}
-
-@keyframes blogSlider {
-
-0% {
-    opacity: 0;
-}
-
-10% {
-    opacity: 1;
-}
-
-33% {
-    opacity: 1;
-}
-
-43% {
-    opacity: 0;
-}
-
-100% {
-    opacity: 0;
-}
-
-}
-
 /* HEADER TEXT */
-
-.blog-header-text {
-position: relative;
-z-index: 5;
-width: 90%;
-max-width: 850px;
-margin: 0 auto;
-padding: 110px 20px 80px;
-text-align: center;
-}
-
-.blog-header-text span {
-display: inline-block;
-margin-bottom: 15px;
-font-size: 12px;
-font-weight: 600;
-letter-spacing: 3px;
-}
-
-.blog-header-text h1 {
-margin: 0 0 20px;
-font-size: 46px;
-line-height: 1.2;
-}
-
-.blog-header-text p {
-max-width: 650px;
-margin: 0 auto;
-font-size: 15px;
-line-height: 1.8;
-}
 
 /* =====================================================
 FEATURED BLOG
@@ -2976,10 +2834,6 @@ MOBILE RESPONSIVE
 
 @media (max-width: 900px) {
 
-.blog-header-text h1 {
-    font-size: 38px;
-}
-
 .featured-container {
     grid-template-columns: 1fr;
 }
@@ -3003,22 +2857,6 @@ MOBILE RESPONSIVE
 }
 
 @media (max-width: 700px) {
-
-.blog-header {
-    min-height: 60vh;
-}
-
-.blog-header-text {
-    padding: 80px 15px 60px;
-}
-
-.blog-header-text h1 {
-    font-size: 31px;
-}
-
-.blog-header-text p {
-    font-size: 13px;
-}
 
 .featured-blog {
     width: 92%;
@@ -4851,6 +4689,10 @@ section.team-section {
     text-align: left;
 }
 
+.team-section .team-title-center {
+    text-align: center;
+}
+
 .team-section .team-container {
     display: flex;
     flex-wrap: wrap;
@@ -5968,5 +5810,83 @@ body.menu-open {
     .drawer-link {
         opacity: 1;
         transform: none;
+    }
+}
+
+/* ============ BLOG HERO — editorial left-aligned hero ============ */
+.blog-hero-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: left;
+}
+
+.blog-hero-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: clamp(40px, 6.5vw, 84px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.blog-hl-green { color: #A8E07A; }
+.blog-hl-orange { color: #FF9F1C; }
+.blog-hl-white { color: #ffffff; }
+
+.blog-hero-sub {
+    margin: 20px 0 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 56ch;
+}
+
+.blog-hero-rule {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+    width: min(800px, 100%);
+    margin: 32px 0 0;
+}
+
+.blog-crumb-nav {
+    margin-top: 20px;
+}
+
+.blog-crumb {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.blog-crumb a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.blog-crumb a:hover {
+    color: #A8E07A;
+}
+
+.blog-crumb a:focus-visible {
+    outline: 2px solid #A8E07A;
+    outline-offset: 3px;
+}
+
+/* ---------- BELOW 768PX ---------- */
+@media (max-width: 768px) {
+    .blog-header {
+        min-height: 340px;
+        padding-top: calc(var(--header-space) + 24px);
+    }
+
+    .blog-hero-sub {
+        font-size: 16px;
     }
 }
