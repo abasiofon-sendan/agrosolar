@@ -133,10 +133,6 @@ import { research } from "./data/research.js";
   card.appendChild(video);
 
   card.appendChild(el("div", "research-shade"));
-  var top = el("div", "research-overlay-top");
-  top.appendChild(el("h3", null, entry.title));
-  top.appendChild(el("p", null, entry.students));
-  card.appendChild(top);
 
   var openBtn = el("button", "research-open");
   openBtn.type = "button";

@@ -69,47 +69,34 @@
 
             </div>
 
+            <button type="button" class="slide-arrow slide-prev" onclick="previousSlide()" aria-label="Previous slide">
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
 
-            <!-- CONTROLS -->
+            <button type="button" class="slide-arrow slide-next" onclick="nextSlide()" aria-label="Next slide">
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
 
-            <div class="slide-controls">
-
-                <button onclick="previousSlide()" aria-label="Previous Slide">
-                    <i class="fa-solid fa-chevron-left"></i>
-                    Previous
-                </button>
-
-
-                <span id="slideNumber">
-                    Slide 1 of 12
-                </span>
-
-
-                <button onclick="nextSlide()" aria-label="Next Slide">
-                    Next
-                    <i class="fa-solid fa-chevron-right"></i>
-                </button>
-
-            </div>
-
+            <span id="slideNumber" class="slide-count">
+                Slide 1 of 12
+            </span>
 
             <!-- FULLSCREEN BUTTON -->
 
             <div class="fullscreen-container">
 
-                <button onclick="openFullscreen()" class="fullscreen-btn">
+                <button onclick="openFullscreen()" class="fullscreen-btn" aria-label="View presentation full screen">
                     <i class="fa-solid fa-expand"></i>
                     Full Screen
                 </button>
 
             </div>
 
-
-            <!-- THUMBNAILS -->
-
-            <div class="thumbnails" id="thumbnails"></div>
-
         </div>
+
+        <!-- THUMBNAILS -->
+
+        <div class="thumbnails" id="thumbnails"></div>
 
     </section>
 
