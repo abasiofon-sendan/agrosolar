@@ -9,7 +9,44 @@
 
 <title>Blog - AgroSolar</title>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20261012">
+
+<style>
+/* Inline fallback: Upcoming Visit band (mirrors styles.css so the band
+   is styled even if the cached stylesheet predates the visit block). */
+.visit-band{background:#06352F;color:#fff;padding:64px 24px;
+  scroll-margin-top:calc(var(--header-space,96px) + 16px)}
+.visit-inner{max-width:1200px;margin:0 auto;display:grid;
+  grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.visit-text,.visit-flyer{min-width:0}
+.visit-label{display:inline-block;font-size:12px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:#8DBF3F;
+  border:1px solid #8DBF3F;border-radius:999px;padding:6px 14px;
+  margin-bottom:16px}
+.visit-band h2{font-size:clamp(28px,3.5vw,44px);line-height:1.15;
+  font-weight:600;color:#fff;margin:0 0 24px}
+.visit-details{list-style:none;margin:0 0 24px;padding:0;
+  display:grid;gap:12px;font-size:17px}
+.visit-details li{display:flex;align-items:center;gap:12px}
+.visit-details i{color:#8DBF3F;width:20px;text-align:center}
+.visit-hosts{font-size:15px;line-height:1.6;color:rgba(255,255,255,.8);
+  margin:0 0 12px;max-width:52ch}
+.visit-btn{margin-top:12px;background:transparent;color:#8DBF3F;
+  border:1px solid #8DBF3F;border-radius:999px;padding:12px 24px;
+  font-family:inherit;font-size:14px;font-weight:600;line-height:1;letter-spacing:.06em;
+  text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s}
+.visit-btn:hover,.visit-btn:focus-visible{background:#8DBF3F;color:#06352F}
+.flyer-open{display:block;width:100%;padding:0;border:1px solid
+  rgba(245,245,239,.25);border-radius:16px;overflow:hidden;
+  background:none;cursor:zoom-in;
+  box-shadow:0 16px 48px rgba(0,0,0,.35)}
+.flyer-open img{display:block;width:100%;height:auto;max-width:100%}
+.visit-band :focus-visible{outline:2px solid #8DBF3F;outline-offset:3px}
+@media (max-width:900px){
+  .visit-band{padding:48px 20px}
+  .visit-inner{grid-template-columns:1fr;gap:32px}}
+@media (prefers-reduced-motion:reduce){.visit-btn{transition:none}}
+</style>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -52,6 +89,99 @@ behind the AgroSolar Technopreneurship and Innovation Centre.
 
 </section>
 
+<!-- Remove after the visit; add a recap post to the grid. -->
+<!-- ================= UPCOMING VISIT ================= -->
+<section id="upcoming-visit" class="visit-band" data-nav="dark" data-expires="2026-10-16T00:00:00+01:00">
+  <div class="visit-inner">
+    <div class="visit-text">
+      <span class="visit-label">Upcoming Visit</span>
+      <h2>Official Visit of the British Council to the ASTIC Project</h2>
+      <ul class="visit-details">
+        <li><i class="fa-regular fa-calendar" aria-hidden="true"></i><time datetime="2026-10-15">Thursday, October 15, 2026</time></li>
+        <li><i class="fa-regular fa-clock" aria-hidden="true"></i><time datetime="2026-10-15T09:00+01:00">9:00am</time></li>
+        <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Multi-Purpose Hall, University of Uyo</span></li>
+      </ul>
+      <p class="visit-hosts">Chief Host: Prof. Christopher N. Ekong, Vice-Chancellor, University of Uyo. Host: Prof. Idara Akpabio, Dean, Faculty of Physical Sciences.</p>
+      <p class="visit-hosts">Project: AgroSolar Technopreneurship and Innovation Centre (ASTIC). British Council funded, Going Global Partnerships - IAU.</p>
+      <button type="button" class="visit-btn" data-open-flyer>View flyer</button>
+    </div>
+    <div class="visit-flyer">
+      <button type="button" class="flyer-open" data-open-flyer aria-label="View flyer full size">
+        <img src="images/british-council-visit-flyer.webp" alt="Flyer: Vice-Chancellor of the University of Uyo, Prof. Christopher N. Ekong, welcomes representatives of the British Council on an official visit to the ASTIC Project, Thursday 15 October 2026, 9:00am, Multi-Purpose Hall, University of Uyo." width="1050" height="750" loading="lazy" decoding="async">
+      </button>
+    </div>
+  </div>
+
+  <dialog class="gal-dialog visit-dialog" id="visitDialog" aria-label="Visit flyer viewer">
+    <div class="gal-dialog-inner" id="visitDialogInner">
+      <button type="button" class="gal-btn gal-close" id="visitClose" aria-label="Close viewer"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <figure class="gal-figure">
+        <img class="gal-view visit-view" id="visitView" src="images/british-council-visit-flyer.webp" alt="Flyer: Vice-Chancellor of the University of Uyo, Prof. Christopher N. Ekong, welcomes representatives of the British Council on an official visit to the ASTIC Project, Thursday 15 October 2026, 9:00am, Multi-Purpose Hall, University of Uyo.">
+      </figure>
+    </div>
+  </dialog>
+</section>
+<script>
+(function () {
+  var band = document.getElementById("upcoming-visit");
+  if (!band) {
+    return;
+  }
+  /* Auto-expiry: remove the band once the visit has passed. */
+  var expires = Date.parse(band.getAttribute("data-expires"));
+  if (!isNaN(expires) && Date.now() > expires) {
+    band.remove();
+    return;
+  }
+  var dialog = document.getElementById("visitDialog");
+  var openers = Array.prototype.slice.call(band.querySelectorAll("[data-open-flyer]"));
+  if (!dialog || typeof dialog.showModal !== "function") {
+    openers.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        window.open("images/british-council-visit-flyer.webp", "_blank");
+      });
+    });
+    return;
+  }
+  var closeBtn = document.getElementById("visitClose");
+  var inner = document.getElementById("visitDialogInner");
+  var opener = null;
+  function openViewer(from) {
+    opener = from || null;
+    if (!dialog.open) {
+      dialog.showModal();
+    }
+    document.body.classList.add("gal-lock");
+    closeBtn.focus();
+  }
+  function closeViewer() {
+    if (dialog.open) {
+      dialog.close();
+    }
+  }
+  openers.forEach(function (btn) {
+    if (btn) {
+      btn.addEventListener("click", function () {
+        openViewer(btn);
+      });
+    }
+  });
+  closeBtn.addEventListener("click", closeViewer);
+  dialog.addEventListener("click", function (event) {
+    if (event.target === dialog || event.target === inner) {
+      closeViewer();
+    }
+  });
+  dialog.addEventListener("close", function () {
+    document.body.classList.remove("gal-lock");
+    if (opener && document.contains(opener)) {
+      opener.focus();
+    }
+    opener = null;
+  });
+})();
+</script>
+
 <!-- =====================================================
      FEATURED POST
      ===================================================== -->
@@ -60,24 +190,18 @@ behind the AgroSolar Technopreneurship and Innovation Centre.
 
 <div class="featured-container">
 
-<div class="featured-image">
-
-<img
-src="ASTIC_Solar_Harvest_Pitch_Desk/Site_Touring_Uniuyo1.jpeg"
-alt="AgroSolar Harvest solar-powered agricultural device">
-
-</div>
-
 <div class="featured-content">
 
-<span class="blog-tag">
-PROJECT MILESTONE
-</span>
+<span class="featured-accent" aria-hidden="true"></span>
+
+<p class="featured-meta">ASTIC Team | October 2026</p>
 
 <h2>
 AgroSolar Harvest Prototype:
 Turning Solar Energy into a Practical Agricultural Solution
 </h2>
+
+<span class="featured-divider" aria-hidden="true"></span>
 
 <p>
 The AgroSolar Technopreneurship and Innovation Centre (ASTIC)
@@ -100,6 +224,14 @@ next stage of testing, evaluation, refinement and demonstration.
 READ STORY
 <i class="fa-solid fa-arrow-right"></i>
 </a>
+
+</div>
+
+<div class="featured-image">
+
+<img
+src="ASTIC_Solar_Harvest_Pitch_Desk/Site_Touring_Uniuyo1.jpeg"
+alt="AgroSolar Harvest solar-powered agricultural device">
 
 </div>
 
