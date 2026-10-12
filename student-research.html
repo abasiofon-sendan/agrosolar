@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Research | AgroSolar ASTIC</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css?v=20261012">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<section data-nav="light" class="header pitch-header-nav">
+
+    <script src="js/site-header.js"></script>
+<noscript><nav aria-label="Main menu"><ul><li><a href="index.html">HOME</a></li><li><a href="about.html">ABOUT</a></li><li><a href="services.html">SERVICES</a></li><li><a href="activities.html">ACTIVITIES</a></li><li><a href="pitch.html">PITCH</a></li><li><a href="blog.html">BLOG</a></li><li><a href="contact.html">CONTACT</a></li></ul></nav></noscript>
+
+</section>
+
+    <!-- ================= STUDENT RESEARCH ================= -->
+
+    <!-- ================= FEATURED VIDEO (data-driven) ================= -->
+
+    <section data-nav="light" class="research-hero" id="featured-video">
+
+        <h1 class="visually-hidden">Student Research</h1>
+        <div class="research-hero-inner" id="researchHero"></div>
+
+        <noscript><p>Enable JavaScript to view the featured student research video.</p></noscript>
+
+    </section>
+
+<script type="module">
+import { research } from "./data/research.js";
+
+(function () {
+  var mount = document.getElementById("researchHero");
+  if (!mount) return;
+  var entry = research[0];
+  if (!entry) return;
+  if (entry.orientation === "landscape") mount.classList.add("is-wide");
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var conn = navigator.connection || {};
+  var saveData = !!conn.saveData || conn.effectiveType === "slow-2g" || conn.effectiveType === "2g";
+  var canPreview = !reduceMotion && !saveData && !!entry.previewUrl;
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  /* ---------- headline with optional italic accent word ---------- */
+  function headline(title, accent) {
+    var h = el("h2", "research-title");
+    if (accent) {
+      var i = title.indexOf(accent);
+      if (i >= 0) {
+        h.appendChild(document.createTextNode(title.slice(0, i)));
+        var em = el("em", "research-accent", accent);
+        h.appendChild(em);
+        h.appendChild(document.createTextNode(title.slice(i + accent.length)));
+        return h;
+      }
+    }
+    h.textContent = title;
+    return h;
+  }
+
+  /* ---------- text column ---------- */
+  var text = el("div", "research-text");
+  text.appendChild(el("span", "research-tag", entry.type));
+  text.appendChild(headline(entry.title, entry.accentWord));
+  text.appendChild(el("p", "research-summary", entry.summary));
+  text.appendChild(el("p", "research-byline",
+    "Students: " + entry.students + " — Supervisor: " + entry.supervisor));
+  var actions = el("div", "research-actions");
+  var soundBtn = el("button", "research-sound", "Watch with sound");
+  soundBtn.type = "button";
+  actions.appendChild(soundBtn);
+  text.appendChild(actions);
+
+  /* ---------- video card ---------- */
+  var media = el("div", "research-media");
+  var card = el("div", "research-card " + (entry.orientation === "landscape" ? "is-landscape" : "is-portrait"));
+  card.setAttribute("role", "group");
+  card.setAttribute("aria-label", "Play video: " + entry.title);
+
+  var poster = document.createElement("img");
+  poster.className = "research-poster";
+  poster.src = entry.posterUrl;
+  poster.width = entry.posterWidth || 1400;
+  poster.height = entry.posterHeight || 933;
+  poster.alt = entry.posterAlt || "";
+  poster.loading = "eager";
+  poster.decoding = "async";
+  card.appendChild(poster);
+
+  var video = document.createElement("video");
+  video.className = "research-video";
+  video.muted = true;
+  video.playsInline = true;
+  video.preload = "none";
+  video.setAttribute("aria-hidden", "true");
+  video.tabIndex = -1;
+  if (entry.captionsUrl) {
+    var track = document.createElement("track");
+    track.kind = "captions";
+    track.src = entry.captionsUrl;
+    track.srclang = "en";
+    track.label = "English";
+    video.appendChild(track);
+  }
+  card.appendChild(video);
+
+  card.appendChild(el("div", "research-shade"));
+  var top = el("div", "research-overlay-top");
+  top.appendChild(el("h3", null, entry.title));
+  top.appendChild(el("p", null, entry.students));
+  card.appendChild(top);
+
+  var openBtn = el("button", "research-open");
+  openBtn.type = "button";
+  openBtn.setAttribute("aria-label", "Play video: " + entry.title);
+  openBtn.innerHTML = '<span class="research-play" aria-hidden="true"><span class="research-triangle" aria-hidden="true"></span></span>';
+  card.appendChild(openBtn);
+
+  var hint = el("button", "research-hint", "Tap for sound");
+  hint.type = "button";
+  hint.setAttribute("aria-label", "Play video with sound");
+  hint.hidden = true;
+  card.appendChild(hint);
+
+  var pauseBtn = el("button", "research-pause", "Pause preview");
+  pauseBtn.type = "button";
+  pauseBtn.hidden = true;
+  pauseBtn.setAttribute("aria-pressed", "false");
+  card.appendChild(pauseBtn);
+
+  media.appendChild(card);
+  mount.appendChild(text);
+  mount.appendChild(media);
+
+  /* ---------- state ---------- */
+  var mode = "poster"; /* poster | preview | full */
+  var loops = 0;
+  var previewLoaded = false;
+  var opener = null;
+
+  function showPoster() {
+    mode = "poster";
+    card.classList.remove("is-playing");
+    openBtn.hidden = false;
+    pauseBtn.hidden = true;
+    hint.hidden = true;
+    video.removeAttribute("controls");
+  }
+
+  function showPreviewUI() {
+    mode = "preview";
+    card.classList.add("is-playing");
+    openBtn.hidden = true;
+    pauseBtn.hidden = false;
+    hint.hidden = false;
+  }
+
+  function stopToPoster() {
+    try { video.pause(); } catch (e) {}
+    showPoster();
+  }
+
+  function playPreview() {
+    if (mode === "full" || !previewLoaded || loops >= 3) return;
+    var p;
+    try { p = video.play(); } catch (e) { stopToPoster(); return; }
+    if (p && p.then) {
+      p.then(function () { showPreviewUI(); }, function () { stopToPoster(); });
+    } else {
+      showPreviewUI();
+    }
+  }
+
+  function isYouTube(url) { return /(?:youtube\.com|youtu\.be)/i.test(url || ""); }
+  function isVimeo(url) { return /vimeo\.com/i.test(url || ""); }
+  function embedUrl(url) {
+    var m;
+    if (isYouTube(url)) {
+      m = url.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{6,})/);
+      if (m) return "https://www.youtube.com/embed/" + m[1] + "?autoplay=1&rel=0";
+    }
+    if (isVimeo(url)) {
+      m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+      if (m) return "https://player.vimeo.com/video/" + m[1] + "?autoplay=1";
+    }
+    return "";
+  }
+
+  /* Clicking card / play / sound restarts video from the beginning,
+     with sound and normal controls. Prefers the full video; falls
+     back to the preview clip until a fullVideoUrl is supplied. */
+  function takeOver(from) {
+    opener = from || null;
+    hint.hidden = true;
+    pauseBtn.hidden = true;
+    var emb = entry.fullVideoUrl ? embedUrl(entry.fullVideoUrl) : "";
+    if (emb) {
+      var frame = document.createElement("iframe");
+      frame.className = "research-embed";
+      frame.src = emb;
+      frame.title = entry.title;
+      frame.allow = "autoplay; encrypted-media; fullscreen; picture-in-picture";
+      frame.allowFullscreen = true;
+      video.hidden = true;
+      card.appendChild(frame);
+      frame.focus();
+    } else {
+      /* Full file, or the preview clip until a fullVideoUrl exists. */
+      var src = entry.fullVideoUrl || entry.previewUrl;
+      if (!src) { stopToPoster(); return; } /* TODO: no video yet */
+      mode = "full";
+      card.classList.add("is-playing");
+      openBtn.hidden = true;
+      if (video.getAttribute("src") !== src) {
+        video.setAttribute("src", src);
+        previewLoaded = true;
+      }
+      video.muted = false;
+      video.controls = true;
+      video.loop = false;
+      video.removeAttribute("aria-hidden");
+      video.tabIndex = 0;
+      try { video.currentTime = 0; } catch (e) {}
+      var pr;
+      try { pr = video.play(); } catch (e) {}
+      if (pr && pr.then) pr.then(undefined, function () {});
+      video.focus();
+    }
+  }
+
+  openBtn.addEventListener("click", function () { takeOver(openBtn); });
+  hint.addEventListener("click", function () { takeOver(hint); });
+  soundBtn.addEventListener("click", function () { takeOver(soundBtn); });
+
+  pauseBtn.addEventListener("click", function () {
+    if (video.paused) {
+      playPreview();
+      pauseBtn.textContent = "Pause preview";
+      pauseBtn.setAttribute("aria-pressed", "false");
+    } else {
+      try { video.pause(); } catch (e) {}
+      pauseBtn.textContent = "Play preview";
+      pauseBtn.setAttribute("aria-pressed", "true");
+    }
+  });
+
+  video.addEventListener("ended", function () {
+    if (mode !== "preview") return;
+    loops += 1;
+    if (loops >= 3) { stopToPoster(); return; }
+    try { video.currentTime = 0; } catch (e) {}
+    playPreview();
+  });
+
+  /* Pause when scrolled out of view or tab hidden. Single video on page. */
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden && mode === "preview") {
+      try { video.pause(); } catch (e) {}
+    }
+  });
+
+  if (canPreview && "IntersectionObserver" in window) {
+    var seen = false;
+    var cardVisible = false;
+    var loadIO = new IntersectionObserver(function (es) {
+      if (!seen && es.some(function (e) { return e.isIntersecting; })) {
+        seen = true;
+        video.setAttribute("src", entry.previewUrl);
+        try { video.load(); } catch (e) {}
+        previewLoaded = true;
+        /* The play observer may already have fired while the file
+           was still unloading — start now if the card is visible. */
+        if (cardVisible && loops < 3 && mode !== "full") playPreview();
+        loadIO.disconnect();
+      }
+    }, { rootMargin: "400px 0px" });
+    loadIO.observe(card);
+
+    var playIO = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        cardVisible = e.intersectionRatio >= 0.5;
+        if (mode !== "preview" && !(mode === "poster" && previewLoaded && loops < 3)) return;
+        if (cardVisible) { playPreview(); }
+        else if (mode === "preview") { try { video.pause(); } catch (err) {} }
+      });
+    }, { threshold: [0, 0.5, 1] });
+    playIO.observe(card);
+    window.__researchIO = [loadIO, playIO]; /* root observers against GC */
+  }
+})();
+</script>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <!-- FOOTER -->
+
+<section data-nav="dark" class="footer">
+
+    <svg class="footer-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;width:100%;height:60px" aria-hidden="true" focusable="false"><path d="M0,0 H1440 V30 C1200,70 960,70 720,40 C480,10 240,10 0,45 Z" fill="#8DBF3F"/></svg>
+    <div class="footer-inner">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-brand-link"><span class="logo-circle"><img src="images/AgroSolar_logo.png" alt="AgroSolar ASTIC logo"></span><span class="wordmark">ASTIC</span></a>
+                <p>AgroSolar helps farmers preserve crops using solar-powered technology.</p>
+            </div>
+            <nav class="footer-links" aria-label="Quick links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pitch.html">Pitch</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-row">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="X (Twitter)"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Made with &hearts; by AgroSolar</p>
+        </div>
+    </div>
+
+</section>
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+
+</body>
+
+</html>

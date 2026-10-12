@@ -157,8 +157,11 @@ document.addEventListener("DOMContentLoaded", function () {
 /* =====================================================
    HEADER STATE BY SECTION (ALL PAGES)
    Switches the floating header between its dark-glass
-   and light-cream states based on the section currently
-   sitting under the header. No scroll listeners.
+   and light-cream states based on the section behind the
+   middle of the pill (viewport y = 50). ONE class on the
+   header drives background, text, hover, underline and
+   icons together through --nav-* vars, so the bar can
+   never end up half-switched. No scroll listeners.
    ===================================================== */
 
 (function () {
@@ -172,22 +175,60 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                header.classList.toggle(
-                    "nav-light",
-                    entry.target.getAttribute("data-nav") === "light"
-                );
+    /* Viewport middle of the 68px pill sitting 16px from the top. */
+    var PILL_MID = 50;
+
+    /* Full live set: callbacks only deliver CHANGED intersections,
+       so current states are tracked across invocations. */
+    var live = new Map();
+    watched.forEach(function (section) {
+        live.set(section, false);
+    });
+
+    function decide() {
+        var best = null;
+        var bestDist = Infinity;
+        var bestTop = -Infinity;
+        live.forEach(function (intersecting, section) {
+            if (!intersecting) {
+                return;
+            }
+            var rect = section.getBoundingClientRect();
+            var dist = PILL_MID < rect.top ? rect.top - PILL_MID :
+                (PILL_MID < rect.bottom ? 0 : PILL_MID - rect.bottom);
+            /* Ties (boundary exactly on the pill) go to the lower
+               section, i.e. the one starting nearest the pill. */
+            if (dist < bestDist || (dist === bestDist && rect.top > bestTop)) {
+                bestDist = dist;
+                bestTop = rect.top;
+                best = section;
             }
         });
+        if (best) {
+            header.classList.toggle(
+                "nav-light",
+                best.getAttribute("data-nav") === "light"
+            );
+        }
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            live.set(entry.target, entry.isIntersecting);
+        });
+        decide();
     }, {
-        rootMargin: "-40px 0px -85% 0px"
+        rootMargin: "-16px 0px -90% 0px"
     });
 
     watched.forEach(function (section) {
         observer.observe(section);
     });
+
+    /* Root the observer: an IntersectionObserver referenced only by
+       this closure can otherwise be garbage-collected, after which
+       the header would freeze in a stale (possibly unreadable) state. */
+    window.__asticHeaderObserver = observer;
 })();
 
 
@@ -205,7 +246,7 @@ const slides = [
 
     "ASTIC_Solar_Harvest_Pitch_Desk/slide-01.png",
 
-    "ASTIC_Solar_Harvest_Pitch_Desk/slide-02.PNG",
+    "ASTIC_Solar_Harvest_Pitch_Desk/slide-02.png",
 
     "ASTIC_Solar_Harvest_Pitch_Desk/slide-03.png",
 
