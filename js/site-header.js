@@ -16,15 +16,15 @@
 
 (function () {
     var LINKS = [
-        { label: "HOME", href: "index.html" },
-        { label: "ABOUT", href: "about.html" },
-        { label: "SERVICES", href: "services.html" },
-        { label: "ACTIVITIES", href: "activities.html",
+        { label: "HOME", href: "index" },
+        { label: "ABOUT", href: "about" },
+        { label: "SERVICES", href: "services" },
+        { label: "ACTIVITIES", href: "activities",
           children: [{ label: "Student Research",
-                       href: "student-research.html" }] },
-        { label: "PITCH", href: "pitch.html" },
-        { label: "BLOG", href: "blog.html" },
-        { label: "CONTACT", href: "contact.html" }
+                       href: "student-research" }] },
+        { label: "PITCH", href: "pitch" },
+        { label: "BLOG", href: "blog" },
+        { label: "CONTACT", href: "contact" }
     ];
 
     function currentPage() {
@@ -42,18 +42,18 @@
     }
 
     /* Prefix-style match with no per-page hardcoding: exact, either
-       direction prefix, or related trailing segment (so research.html
+       direction prefix, or related trailing segment (so research
        resolves to the student-research child). */
     function matches(href) {
         var page = base(currentPage());
         var target = base(href);
-        if (!target) {
+        if (!target || !page) {
             return false;
         }
         return page === target ||
             page.indexOf(target) === 0 ||
             target.indexOf(page) === 0 ||
-            target.lastIndexOf(page) === target.length - page.length;
+            target.slice(-page.length) === page;
     }
 
     function childActive(link) {
@@ -149,7 +149,7 @@
 
     var headerHTML =
         '<header class="glass-header">' +
-        '<a href="index.html" class="brand"><span class="logo-circle">' +
+        '<a href="index" class="brand"><span class="logo-circle">' +
         '<img src="images/AgroSolar_logo.png" alt="AgroSolar ASTIC Logo">' +
         '</span><span class="wordmark">ASTIC</span></a>' +
         '<nav class="glass-nav">' +
@@ -166,7 +166,7 @@
         '<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>' +
         '<nav id="mobile-menu" aria-label="Main menu">' +
         '<div class="drawer-head">' +
-        '<a href="index.html" class="drawer-brand">' +
+        '<a href="index" class="drawer-brand">' +
         '<span class="logo-circle">' +
         '<img src="images/AgroSolar_logo.png" alt="AgroSolar ASTIC Logo">' +
         '</span><span class="drawer-wordmark">ASTIC</span></a>' +

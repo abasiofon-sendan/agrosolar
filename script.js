@@ -50,12 +50,19 @@ document.addEventListener("DOMContentLoaded", function () {
     var mq = window.matchMedia("(max-width: 768px)");
     var opener = null;
 
-    /* Same links as the header; mark the current page. */
+    /* Same links as the header; mark the current page.
+       Compared extension-free so clean URLs (/about) and
+       legacy .html URLs both match. */
     var current =
-        window.location.pathname.split("/").pop() || "index.html";
+        (window.location.pathname.split("/").pop() || "index")
+        .split("#")[0].split("?")[0].replace(/\.html?$/i, "")
+        .toLowerCase();
     links.forEach(function (link, index) {
         link.style.setProperty("--j", index);
-        if (link.getAttribute("href") === current) {
+        var target = (link.getAttribute("href") || "").split("#")[0]
+            .split("?")[0].split("/").pop().replace(/\.html?$/i, "")
+            .toLowerCase();
+        if (target && target === current) {
             link.classList.add("current");
             link.setAttribute("aria-current", "page");
         }
